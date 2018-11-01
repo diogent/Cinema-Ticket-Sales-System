@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Autofac.Integration.Mvc;
+using CinemaTicketSalesSystem.Services;
 
 namespace CinemaTicketSalesSystem
 {
@@ -13,6 +15,8 @@ namespace CinemaTicketSalesSystem
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            var container = AutofacConfig.ConfigureContainer();
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
         }
     }
 }

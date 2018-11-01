@@ -16,7 +16,14 @@ namespace CinemaTicketSalesSystem.Controllers
 {
     public class AccountController : Controller
     {
-        private IAuthenticationManager AuthenticationManager       //With the help of this property we can use SignIn() and SignOut() methods 
+        //every thing that needs the old UserManager property references this now
+        private ApplicationUserManager _userManager; 
+        public AccountController(ApplicationUserManager userManager)
+        {
+            _userManager = userManager;
+        }
+        //With the help of this property we can use SignIn() and SignOut() methods
+        private IAuthenticationManager AuthenticationManager        
         {
             get
             {
@@ -35,29 +42,32 @@ namespace CinemaTicketSalesSystem.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginModel model, string returnUrl)
         {
-            if(ModelState.IsValid)
+            if(!ModelState.IsValid)
             {
-                ApplicationUser user = await UserManager.FindAsync(model.Email, model.Password);
-                if(user == null)
-                {
-                    ModelState.AddModelError("", "Email or password is incorrect.");
-                }
-                else
-                {
-                    ClaimsIdentity claim = await UserManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
-                    AuthenticationManager.SignOut();                                //Removes authentication cookie
-                    AuthenticationManager.SignIn(new AuthenticationProperties       //Creates authentication cookie
-                    {
-                        IsPersistent = true
-                    }, claim);
-
-                    if (String.IsNullOrEmpty(returnUrl))
-                        return RedirectToAction("Index", "Home");
-                    return Redirect(returnUrl);
-                }
+                ViewBag.returnUrl = returnUrl;
+                return View(model);
+            }            
+            ApplicationUser user = await _userManager.FindAsync(model.Email, model.Password);
+            if (user == null)
+            {
+                ModelState.AddModelError("", "Email or password is incorrect.");
+                return View(model);
             }
-            ViewBag.returnUrl = returnUrl;
-            return View(model);
+
+            ClaimsIdentity claim = await _userManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
+
+            //Removes authentication cookie
+            AuthenticationManager.SignOut();
+
+            //Creates authentication cookie
+            AuthenticationManager.SignIn(new AuthenticationProperties
+            {
+                IsPersistent = true
+            }, claim);
+
+            if (String.IsNullOrEmpty(returnUrl))
+                return RedirectToAction("Index", "Home");
+            return Redirect(returnUrl);
         }
 
         public ActionResult Logout()
@@ -66,13 +76,7 @@ namespace CinemaTicketSalesSystem.Controllers
             return RedirectToAction("Register");
         }
 
-        private ApplicationUserManager UserManager     //Through this property we will interact with the storage
-        {
-            get
-            {
-                return HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();    //This expression is used to get the storage
-            }
-        }
+     
 
         [HttpGet]
         public ActionResult Register()
@@ -83,23 +87,19 @@ namespace CinemaTicketSalesSystem.Controllers
         [HttpPost]
         public async Task<ActionResult> Register(RegisterModel model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
+                return View(model);
+            ApplicationUser user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+            IdentityResult result = await _userManager.CreateAsync(user, model.Password);
+            if (!result.Succeeded)
             {
-                ApplicationUser user = new ApplicationUser { UserName = model.Email, Email = model.Email};
-                IdentityResult result = await UserManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
+                foreach (string error in result.Errors)
                 {
-                    return RedirectToAction("Login", "Account");
+                    ModelState.AddModelError("", error);
                 }
-                else
-                {
-                    foreach (string error in result.Errors)
-                    {
-                        ModelState.AddModelError("", error);
-                    }
-                }
+                
             }
-            return View(model);
+            return RedirectToAction("Login", "Account");
         }
     }
 }

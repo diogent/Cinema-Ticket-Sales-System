@@ -11,9 +11,6 @@ namespace CinemaTicketSalesSystem.Models
     {
         public ApplicationContext() : base("IdentityDb") { }
 
-        public static ApplicationContext Create()
-        {
-            return new ApplicationContext();
-        }
+        
     }
 }

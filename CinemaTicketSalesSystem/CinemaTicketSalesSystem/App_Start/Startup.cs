@@ -3,6 +3,11 @@ using Owin;
 using CinemaTicketSalesSystem.Models;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.AspNet.Identity;
+using CinemaTicketSalesSystem.Services;
+using Autofac;
+using Autofac.Integration;
+
+
 
 [assembly: OwinStartup(typeof(AspNetIdentityApp.Startup))]
 
@@ -12,12 +17,16 @@ namespace AspNetIdentityApp
     {
         public void Configuration(IAppBuilder app)
         {
-            // Set up context and manager
-            app.CreatePerOwinContext<ApplicationContext>(ApplicationContext.Create);              // Registering ApplicationContext in OWIN 
-            app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);      // Registering ApplicationUserManager in OWIN
+            //// Set up context and manager
+            //// Registering ApplicationContext in OWIN 
+            //app.CreatePerOwinContext<ApplicationContext>(ApplicationContext.Create);
+            //// Registering ApplicationUserManager in OWIN
+            //app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
+            
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
-                AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,                // Using Cookie 
+                // Using Cookie 
+                AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
                 LoginPath = new PathString("/Home/Index"),
             });
         }
