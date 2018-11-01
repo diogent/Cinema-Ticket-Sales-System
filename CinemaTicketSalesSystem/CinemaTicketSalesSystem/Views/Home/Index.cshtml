@@ -8,12 +8,17 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/Content/SiteCSS.css">
     <title>Index</title>
 </head>
 <body>
     <div>
-        <li>@Html.ActionLink("Sign In", "Login", "Account")</li>
-        <li>@Html.ActionLink("Sign Up", "Register", "Account")</li>
+        <nav role="navigation">
+            <ul>
+                <li>@Html.ActionLink("Sign In", "Login", "Account")</li>
+                <li>@Html.ActionLink("Sign Up", "Register", "Account")</li>
+            </ul>
+        </nav>        
     </div>
 </body>
 </html>
