@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace CinemaTicketSalesSystem.Models
+namespace ApplicationDbMovies.Models
 {
     public class ApplicationUser : IdentityUser
     {

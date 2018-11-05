@@ -9,8 +9,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using System.Security.Claims;
-
-
+using ApplicationDbMovies.Models;
+using CinemaTicketSalesBusinessLogic.Models;
 
 namespace CinemaTicketSalesSystem.Controllers
 {
@@ -47,7 +47,7 @@ namespace CinemaTicketSalesSystem.Controllers
                 ViewBag.returnUrl = returnUrl;
                 return View(model);
             }            
-            ApplicationUser user = await _userManager.FindAsync(model.Email, model.Password);
+            var user = await _userManager.FindAsync(model.Email, model.Password);
             if (user == null)
             {
                 ModelState.AddModelError("", "Email or password is incorrect.");
@@ -89,15 +89,15 @@ namespace CinemaTicketSalesSystem.Controllers
         {
             if (!ModelState.IsValid)
                 return View(model);
-            ApplicationUser user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-            IdentityResult result = await _userManager.CreateAsync(user, model.Password);
+            var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+            var result = await _userManager.CreateAsync(user, model.Password);
             if (!result.Succeeded)
             {
                 foreach (string error in result.Errors)
                 {
                     ModelState.AddModelError("", error);
                 }
-                
+
             }
             return RedirectToAction("Login", "Account");
         }

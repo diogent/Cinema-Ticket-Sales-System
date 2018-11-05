@@ -6,20 +6,21 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
-using CinemaTicketSalesSystem.Services;
+using ApplicationDbMovies.Models;
+using ApplicationDbMovies.Contexts;
 
-namespace CinemaTicketSalesSystem.Models
+namespace CinemaTicketSalesBusinessLogic.Models
 {
     public class ApplicationUserManager : UserManager<ApplicationUser>
     {
-        public ApplicationUserManager(IUserStore<ApplicationUser> store, IdentityFactoryOptions<ApplicationContext> options) : base(store)
+        public ApplicationUserManager(IUserStore<ApplicationUser> store, IdentityFactoryOptions<ApplicationDbContext> options) : base(store)
         {
-           
+
         }
 
         //public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context)
         //{
-            
+
         //}
     }
 }

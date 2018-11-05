@@ -9,6 +9,9 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Autofac.Integration.Mvc;
+using ApplicationDbMovies.Contexts;
+using ApplicationDbMovies.Models;
+using CinemaTicketSalesBusinessLogic.Models;
 
 namespace CinemaTicketSalesSystem.Services
 {
@@ -18,10 +21,10 @@ namespace CinemaTicketSalesSystem.Services
         {
             var builder = new ContainerBuilder();
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
-            builder.RegisterType<ApplicationContext>().AsSelf().InstancePerRequest();
-            builder.Register<UserStore<ApplicationUser>>(c => new UserStore<ApplicationUser>(c.Resolve<ApplicationContext>())).AsImplementedInterfaces();
+            builder.RegisterType<ApplicationDbContext>().AsSelf().InstancePerRequest();
+            builder.Register<UserStore<ApplicationUser>>(c => new UserStore<ApplicationUser>(c.Resolve<ApplicationDbContext>())).AsImplementedInterfaces();
             //builder.RegisterGeneric(typeof(UserStore<>)).As(typeof(IUserStore<>)).InstancePerRequest();
-            builder.Register<IdentityFactoryOptions<ApplicationContext>>(c => new IdentityFactoryOptions<ApplicationContext>()
+            builder.Register<IdentityFactoryOptions<ApplicationDbContext>>(c => new IdentityFactoryOptions<ApplicationDbContext>()
             {
                 DataProtectionProvider = new Microsoft.Owin.Security.DataProtection.DpapiDataProtectionProvider("CinemaTicketSalesSystem")
             }).InstancePerRequest();
