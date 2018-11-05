@@ -16,7 +16,7 @@ namespace CinemaTicketSalesSystem.Controllers
 {
     public class AccountController : Controller
     {
-        //every thing that needs the old UserManager property references this now
+        //everything that needs the old UserManager property references this now
         private ApplicationUserManager _userManager; 
         public AccountController(ApplicationUserManager userManager)
         {
