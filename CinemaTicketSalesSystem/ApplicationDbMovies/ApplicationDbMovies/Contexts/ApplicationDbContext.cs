@@ -17,7 +17,9 @@ namespace ApplicationDbMovies.Contexts
         public DbSet<Picture> Pictures { get; set; }
 
         public ApplicationDbContext() : base("IdentityDb")
-        { }
+        {
+            Database.SetInitializer(new MoviesInit());
+        }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
