@@ -1,0 +1,17 @@
+﻿@using ApplicationDbMovies.Models
+@model Movie
+@{
+    Layout = "/Views/Shared/MasterView.cshtml";
+}
+
+<div>
+    @Html.DisplayFor(model => model.Name)
+</div>
+<div>
+    @foreach(var a in Model.Actors)
+    {
+        <ul>     
+            <li>@a.FirstName</li>
+        </ul>        
+    }
+</div>

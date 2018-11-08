@@ -63,6 +63,7 @@
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Models\MoviesInit.cs" />
+    <Compile Include="ViewModels\MovieViewModel.cs" />
     <Compile Include="Models\Picture.cs" />
     <Compile Include="Models\Producer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

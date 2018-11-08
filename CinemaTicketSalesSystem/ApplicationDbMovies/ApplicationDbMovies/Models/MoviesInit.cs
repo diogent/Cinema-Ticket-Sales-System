@@ -54,7 +54,53 @@ namespace ApplicationDbMovies.Models
             movie1.Genres.Add(genre2);
             movie1.Genres.Add(genre3);
 
+            var movie2 = new Movie
+            {
+                Name = "The Girl In The Spider's Web",
+                AgeRating = "16+",
+                Description = "Lisbeth Salander, the cult figure and title character of the acclaimed Millennium " +
+                "book series created by Stieg Larsson, will return to the screen in The Girl in the Spider's Web, a " +
+                "first-time adaptation of the recent global bestseller.",
+                DateOfPremiere = DateTime.ParseExact("09.11.2018", "dd.MM.yyyy", null),
+                Actors = new List<Actor>(),
+                Pictures = new List<Picture>(),
+                Producers = new List<Producer>(),
+                Genres = new List<Genre>()
+
+            };
+
+            var actor21 = new Actor { FirstName = "Claire", LastName = "Foy", DateOfBirth = DateTime.ParseExact("16.04.1986", "dd.MM.yyyy", null) };
+            var actor22 = new Actor { FirstName = "Sverrir", LastName = "Gudnason", DateOfBirth = DateTime.ParseExact("12.09.1978", "dd.MM.yyyy", null) };
+            var actor23 = new Actor { FirstName = "Lakeith",  LastName = "Stanfield", DateOfBirth = DateTime.ParseExact("12.08.1991", "dd.MM.yyyy", null) };
+            var actor24 = new Actor { FirstName = "Sylvia", LastName = "Hoeks", DateOfBirth = DateTime.ParseExact("01.06.1983", "dd.MM.yyyy", null) };
+            var actor25 = new Actor { FirstName = "Cameron", LastName = "Britton", DateOfBirth = DateTime.ParseExact("06.06.1986", "dd.MM.yyyy", null) };
+
+            var genre21 = new Genre { Name = "Crime" };
+            var genre22 = new Genre { Name = "Drama" };
+            var genre23 = new Genre { Name = "Thriller" };
+
+            var producer21 = new Producer { FirstName = "Fede", LastName = "Alvares", DateOfBirth = DateTime.ParseExact("09.02.1978", "dd.MM.yyyy", null) };
+            
+
+            var pictures21 = new Picture { Url = "/Images/TheGirlInTheSpidersWeb.jpg" };
+
+            movie2.Pictures.Add(pictures21);
+
+            movie2.Actors.Add(actor21);
+            movie2.Actors.Add(actor22);
+            movie2.Actors.Add(actor23);
+            movie2.Actors.Add(actor24);
+            movie2.Actors.Add(actor25);
+
+            movie2.Producers.Add(producer21);
+            
+
+            movie2.Genres.Add(genre21);
+            movie2.Genres.Add(genre22);
+            movie2.Genres.Add(genre23);
+
             context.Movies.Add(movie1);
+            context.Movies.Add(movie2);            
             base.Seed(context);
         }
     }
