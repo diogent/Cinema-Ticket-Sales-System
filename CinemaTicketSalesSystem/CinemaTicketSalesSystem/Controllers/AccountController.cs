@@ -15,14 +15,20 @@ using CinemaTicketSalesBusinessLogic.Models;
 namespace CinemaTicketSalesSystem.Controllers
 {
     public class AccountController : Controller
-    {
-        //everything that needs the old UserManager property references this now
+    {        
+        /// <summary>
+        /// Everything that needs the old UserManager property references this now
+        /// </summary>
         private ApplicationUserManager _userManager; 
         public AccountController(ApplicationUserManager userManager)
         {
             _userManager = userManager;
         }
-        //With the help of this property we can use SignIn() and SignOut() methods
+
+        
+        /// <summary>
+        /// With the help of this property we can use SignIn() and SignOut() methods
+        /// </summary>
         private IAuthenticationManager AuthenticationManager        
         {
             get

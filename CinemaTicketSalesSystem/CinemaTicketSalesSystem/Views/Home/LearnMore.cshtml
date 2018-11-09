@@ -8,6 +8,12 @@
     @Html.DisplayFor(model => model.Name)
 </div>
 <div>
+    @foreach (var p in Model.Pictures)
+    {
+        <img src="@p.Url"/>
+    }
+</div>
+<div>
     @foreach(var a in Model.Actors)
     {
         <ul>     

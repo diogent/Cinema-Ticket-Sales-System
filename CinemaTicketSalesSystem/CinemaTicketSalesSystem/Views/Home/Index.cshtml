@@ -1,19 +1,19 @@
-﻿@{
+﻿@model IEnumerable<ApplicationDbMovies.Models.MovieViewModel>
+@{
     Layout = "/Views/Shared/MasterView.cshtml";
 }
 
     <div class="row">
-        @foreach (var m in ViewBag.Movies)
+        @foreach (var m in Model)
         {
-            <div class="card" style="width: 20rem; margin: 2%;">
-                @*Temp image. Only for testing*@
-                <img class="card-img-top" src="~/Images/Smallfoot.jpg" style="overflow: hidden">
+            <div class="card" style="width: 20rem; margin: 2%;">                
+                <img class="card-img-top" src="@m.Url" style="overflow: hidden">
                 <div class="card-body">
-                    <h4 class="card-title">@m.Name</h4>
+                    <h4 class="card-title">@m.MovieName</h4>
                     <p class="card-text">@m.Description</p>
-                    <a class="btn btn-primary" href="/Home/LearnMore/@m.Id">Learn More</a>                    
+                    <a class="btn btn-primary" href="/Home/LearnMore/@m.MovieId">Learn More</a>                    
                 </div>
-            </div>            
+            </div>
         }
     </div>
 
