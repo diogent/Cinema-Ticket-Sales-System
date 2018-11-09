@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ApplicationDbMovies.Contexts;
 using ApplicationDbMovies.Models;
 
@@ -10,7 +7,7 @@ namespace CinemaTicketSalesBusinessLogic.Queries
 {
     public static class DbService
     {
-        public static ApplicationDbContext db = new ApplicationDbContext();
+        private static ApplicationDbContext db;
 
         /// <summary>
         /// Using in HomeController for viewing Movies collection on Main page.
