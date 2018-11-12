@@ -7,8 +7,8 @@ namespace CinemaTicketSalesBusinessLogic.Queries
 {
     public static class DbService
     {
-        private static ApplicationDbContext db;
-
+        private static ApplicationDbContext db = new ApplicationDbContext();
+        
         /// <summary>
         /// Using in HomeController for viewing Movies collection on Main page.
         /// </summary>        

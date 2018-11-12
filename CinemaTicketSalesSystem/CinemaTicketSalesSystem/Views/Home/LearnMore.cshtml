@@ -3,21 +3,33 @@
 @{
     Layout = "/Views/Shared/MasterView.cshtml";
 }
+<div class="jumbotron">
+    <div>
+        <h1> @Html.DisplayFor(model => model.Name) </h1>
+        <h6>World Premiere: @Html.DisplayFor(model => model.DateOfPremiere) </h6>
+        <h6>Directed by: <br />
+            @foreach (var p in Model.Producers)
+            {
+                <a>@p.FirstName @p.SecondName @p.LastName <br/></a>
+            } 
+        </h6>
+    </div>
+    <div>
+        @foreach (var p in Model.Pictures)
+        {
+            <img src="@p.Url" style="height:675px; width: 440px"/>
+        }
+    </div>
+    <div>
+        <a>
+            Cast:  @foreach (var a in Model.Actors)
+            {
+                <a>@a.FirstName @a.SecondName @a.LastName <br/> </a>
+            }
 
-<div>
-    @Html.DisplayFor(model => model.Name)
+        </a>
+       
+    </div>
+    <div>Description: @Html.DisplayFor(model => model.Description)</div>
 </div>
-<div>
-    @foreach (var p in Model.Pictures)
-    {
-        <img src="@p.Url"/>
-    }
-</div>
-<div>
-    @foreach(var a in Model.Actors)
-    {
-        <ul>     
-            <li>@a.FirstName</li>
-        </ul>        
-    }
-</div>
+

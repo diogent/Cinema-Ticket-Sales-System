@@ -24,7 +24,7 @@ namespace CinemaTicketSalesSystem.Services
             {
                 DataProtectionProvider = new Microsoft.Owin.Security.DataProtection.DpapiDataProtectionProvider("CinemaTicketSalesSystem")
             }).InstancePerRequest();
-            builder.RegisterType<ApplicationUserManager>().AsSelf().InstancePerRequest();            
+            builder.RegisterType<ApplicationUserManager>().AsSelf().InstancePerRequest();
             var container = builder.Build();
             return container;   
         }   
