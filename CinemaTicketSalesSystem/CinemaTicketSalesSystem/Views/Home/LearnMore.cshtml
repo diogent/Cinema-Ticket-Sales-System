@@ -3,33 +3,35 @@
 @{
     Layout = "/Views/Shared/MasterView.cshtml";
 }
-<div class="jumbotron">
-    <div>
-        <h1> @Html.DisplayFor(model => model.Name) </h1>
-        <h6>World Premiere: @Html.DisplayFor(model => model.DateOfPremiere) </h6>
-        <h6>Directed by: <br />
-            @foreach (var p in Model.Producers)
-            {
-                <a>@p.FirstName @p.SecondName @p.LastName <br/></a>
-            } 
-        </h6>
-    </div>
-    <div>
-        @foreach (var p in Model.Pictures)
-        {
-            <img src="@p.Url" style="height:675px; width: 440px"/>
-        }
-    </div>
-    <div>
-        <a>
-            Cast:  @foreach (var a in Model.Actors)
-            {
-                <a>@a.FirstName @a.SecondName @a.LastName <br/> </a>
-            }
 
-        </a>
-       
-    </div>
-    <div>Description: @Html.DisplayFor(model => model.Description)</div>
+<div class="container" style="margin-top: 5%">
+    <div class="row justify-content-center">
+        <div class="col-5">
+            @foreach (var p in Model.Pictures)
+            {
+                <img src="@p.Url" style="height:675px; width: 440px" />
+            }
+        </div>
+        <div class="col-6">
+            <h1> @Html.DisplayFor(model => model.Name) </h1>
+            <h6>World Premiere: @Html.DisplayFor(model => model.DateOfPremiere) </h6>
+            <h6 style="margin-top: 20%">
+                Directed by:
+                @foreach (var p in Model.Producers)
+                {
+                    <a>@p.FirstName @p.SecondName @p.LastName, </a>
+                }
+            </h6>
+            <h6>
+                Cast:  @foreach (var a in Model.Actors)
+                {
+                    <a>@a.FirstName @a.SecondName @a.LastName,  </a>
+                }
+
+            </h6>
+            <h6>Description: <br /> @Html.DisplayFor(model => model.Description)</h6>
+            <a class="btn btn-primary" href="/Home/">Buy Tickets</a>
+        </div>            
+    </div>        
 </div>
 

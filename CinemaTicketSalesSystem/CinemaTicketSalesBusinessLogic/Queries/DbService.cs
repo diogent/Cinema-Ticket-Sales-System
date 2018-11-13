@@ -7,14 +7,14 @@ namespace CinemaTicketSalesBusinessLogic.Queries
 {
     public static class DbService
     {
+        
         private static ApplicationDbContext db = new ApplicationDbContext();
         
         /// <summary>
-        /// Using in HomeController for viewing Movies collection on Main page.
+        /// Using in HomeController for viewing Movies collection on the Main page.
         /// </summary>        
         public static IEnumerable<MovieViewModel> GetMovieInfo()
         {
-
             return (from s in db.Movies
                          join sa in db.Pictures on s.Id equals sa.MovieId
                          select new MovieViewModel

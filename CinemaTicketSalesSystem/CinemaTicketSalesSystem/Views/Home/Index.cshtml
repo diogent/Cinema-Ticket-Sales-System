@@ -3,11 +3,11 @@
     Layout = "/Views/Shared/MasterView.cshtml";
 }
 
-    <div class="row">
+    <div class="row" style="margin-right: 0px">
         @foreach (var m in Model)
         {
             <div class="card" style="width: 20rem; margin: 2%;">                
-                <img class="card-img-top" src="@m.Url" style="overflow: hidden">
+                <img class="card-img-top" src="@m.Url" style="overflow: hidden; height: 472px; width: 318px">
                 <div class="card-body">
                     <h4 class="card-title">@m.MovieName</h4>
                     <p class="card-text">@m.Description</p>
