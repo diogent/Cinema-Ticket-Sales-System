@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Autofac;
+﻿using Autofac;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Autofac.Integration.Mvc;
 using ApplicationDbMovies.Contexts;
 using ApplicationDbMovies.Models;
 using CinemaTicketSalesBusinessLogic.Models;
+using CinemaTicketSalesBusinessLogic.Queries;
+using CinemaTicketSalesBusinessLogic.Interfaces;
 
 namespace CinemaTicketSalesSystem.Services
 {
@@ -25,6 +24,7 @@ namespace CinemaTicketSalesSystem.Services
                 DataProtectionProvider = new Microsoft.Owin.Security.DataProtection.DpapiDataProtectionProvider("CinemaTicketSalesSystem")
             }).InstancePerRequest();
             builder.RegisterType<ApplicationUserManager>().AsSelf().InstancePerRequest();
+            builder.RegisterType<DbService>().As<IDbService>().WithParameter("context", new ApplicationDbContext());
             var container = builder.Build();
             return container;   
         }   

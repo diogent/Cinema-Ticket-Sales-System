@@ -2,21 +2,25 @@
 using System.Linq;
 using ApplicationDbMovies.Contexts;
 using ApplicationDbMovies.Models;
+using CinemaTicketSalesBusinessLogic.Interfaces;
 
 namespace CinemaTicketSalesBusinessLogic.Queries
 {
-    public static class DbService
+    public class DbService : IDbService
     {
-        
-        private static ApplicationDbContext db = new ApplicationDbContext();
+        private ApplicationDbContext _db;
+        public DbService (ApplicationDbContext context)
+        {
+            _db = context;
+        }       
         
         /// <summary>
         /// Using in HomeController for viewing Movies collection on the Main page.
         /// </summary>        
-        public static IEnumerable<MovieViewModel> GetMovieInfo()
+        public IEnumerable<MovieViewModel> GetMovieInfo()
         {
-            return (from s in db.Movies
-                         join sa in db.Pictures on s.Id equals sa.MovieId
+            return (from s in _db.Movies
+                         join sa in _db.Pictures on s.Id equals sa.MovieId
                          select new MovieViewModel
                          {
                              MovieId = s.Id,
@@ -33,9 +37,9 @@ namespace CinemaTicketSalesBusinessLogic.Queries
         /// Using to find the relative data.
         /// </param>
         /// <returns></returns>
-        public static Movie GetMovieDescription(int id)
+        public Movie GetMovieDescription(int id)
         {
-            var description = db.Movies.Find(id);
+            var description = _db.Movies.Find(id);
             return description;
         }
     }
