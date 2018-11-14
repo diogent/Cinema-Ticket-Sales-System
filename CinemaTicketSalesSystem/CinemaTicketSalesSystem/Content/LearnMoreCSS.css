@@ -1,0 +1,31 @@
+﻿.imgSize {
+    height: 675px;
+    width: 440px;
+}
+
+.card {
+    width: 20rem;
+    margin: 2%;
+}
+
+.card-img-top {
+    overflow: hidden;
+    height: 472px;
+    width: 318px;
+}
+
+.container {
+    margin-top: 5%;
+}
+
+.h6-for-producers {
+    margin-top: 20%;
+}
+
+.nav-item {
+    margin-right: 10px;
+}
+
+.row {
+    margin-right: 0px;
+}

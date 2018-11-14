@@ -1,0 +1,37 @@
+﻿@using ApplicationDbMovies.Models
+@model Movie
+@{
+    Layout = "/Views/Shared/MasterView.cshtml";
+}
+<link href="~/Content/LearnMoreCSS.css" rel="stylesheet" />
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-5">
+            @foreach (var p in Model.Pictures)
+            {
+                <img src="@p.Url" class="imgSize"/>
+            }
+        </div>
+        <div class="col-6">
+            <h1> @Html.DisplayFor(model => model.Name) </h1>
+            <h6>World Premiere: @Html.DisplayFor(model => model.DateOfPremiere) </h6>
+            <h6 class="h6-for-producers">
+                Directed by:
+                @foreach (var p in Model.Producers)
+                {
+                    <a>@p.FirstName @p.SecondName @p.LastName, </a>
+                }
+            </h6>
+            <h6>
+                Cast:  @foreach (var a in Model.Actors)
+                {
+                    <a>@a.FirstName @a.SecondName @a.LastName,  </a>
+                }
+
+            </h6>
+            <h6>Description: <br /> @Html.DisplayFor(model => model.Description)</h6>
+            <a class="btn btn-primary" href="/Home/">Buy Tickets</a>
+        </div>            
+    </div>        
+</div>
+

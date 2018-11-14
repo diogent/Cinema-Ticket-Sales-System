@@ -1,30 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using CinemaTicketSalesBusinessLogic.Interfaces;
+using CinemaTicketSalesBusinessLogic.Queries;
 
 namespace CinemaTicketSalesSystem.Controllers
 {
     public class HomeController : Controller
     {
+        /// <summary>
+        /// Injected interface.
+        /// </summary>
+        private IDbService _dbService;
+        public HomeController(IDbService dbService)
+        {
+            _dbService = dbService;
+        }
+
+        [HttpGet]
         public ActionResult Index()
         {
-            return View();
-        }
+            return View(_dbService.GetMovieInfo());
+        }        
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+        [HttpGet]
+        public ActionResult LearnMore(int id)
+        {            
+            var description = _dbService.GetMovieDescription(id);
+            if (description == null)
+                return HttpNotFound();
+            return View(description);
         }
     }
 }
