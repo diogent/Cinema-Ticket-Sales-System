@@ -1,0 +1,51 @@
+﻿@model CinemaTicketSalesSystem.Models.CreateMovieViewModel
+@{
+    ViewBag.Title = "CreateNewMovie";
+    Layout = "~/Views/Shared/MasterView.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div>
+    <h4>Create new movie</h4>
+    <hr />
+    @Html.ValidationSummary(false)
+
+    <div>
+        Movie name:
+        <div>
+            @Html.EditorFor(model => model.Name)
+        </div>
+    </div>
+
+    <div>
+        Description:
+        <div>
+            @Html.EditorFor(model => model.Description)
+        </div>
+    </div>
+
+    <div>
+        Age rating:
+        <div>
+            @Html.EditorFor(model => model.AgeRating)
+        </div>
+    </div>
+
+    <div>
+        Date of premiere:
+        <div>
+            @Html.EditorFor(model => model.DateOfPremiere)
+        </div>
+    </div>
+
+    <div>
+        <div>
+            <input type="submit" value="Submit" />
+        </div>
+    </div>
+</div>
+}
+

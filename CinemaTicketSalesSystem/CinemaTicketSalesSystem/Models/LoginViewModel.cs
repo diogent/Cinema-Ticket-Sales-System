@@ -2,7 +2,7 @@
 
 namespace CinemaTicketSalesSystem.Models
 {
-    public class LoginModel
+    public class LoginViewModel
     {
         [Required]
         [DataType(DataType.EmailAddress)]

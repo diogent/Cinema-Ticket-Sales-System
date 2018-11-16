@@ -1,8 +1,8 @@
 ﻿
 
-namespace ApplicationDbMovies.Models
+namespace CinemaTicketSalesBusinessLogic.Models
 {
-    public class MovieViewModel
+    public class MovieModel
     {
         public int MovieId { get; set; }
         public string Url { get; set; }
