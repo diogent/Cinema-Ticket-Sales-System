@@ -1,4 +1,8 @@
-﻿using System;
+﻿using CinemaTicketSalesSystem.Controllers;
+using CinemaTicketSalesSystem.Models;
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
@@ -19,6 +23,8 @@ namespace CinemaTicketSalesSystem.Models
 
         [Required]
         [StringLength(3)]
-        public string AgeRating { get; set; }        
+        public string AgeRating { get; set; }
+        
+
     }
 }

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using CinemaTicketSalesBusinessLogic.Models;
+using CinemaTicketSalesSystem.Models;
 using CinemaTicketSalesSystem.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace CinemaTicketSalesSystem.Mappings
         public MovieProfile()
         {
             CreateMap<MovieModel, MovieViewModel>();
+            CreateMap<CreateMovieViewModel, CreateMovieModel>();
         }
     }
 }

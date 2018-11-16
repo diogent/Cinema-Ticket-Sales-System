@@ -36,6 +36,7 @@ namespace CinemaTicketSalesSystem.Services
                 var config = new MapperConfiguration(x =>
                 {
                     x.AddProfiles(typeof(MovieProfile).Assembly);
+                    x.AddProfiles(typeof(PictureProfile).Assembly);
                     x.AddProfiles(typeof(Mappings.MovieProfile).Assembly);
                 });
 

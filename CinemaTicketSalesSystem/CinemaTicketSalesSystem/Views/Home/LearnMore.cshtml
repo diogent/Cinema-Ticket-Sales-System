@@ -9,7 +9,7 @@
         <div class="col-5">
             @foreach (var p in Model.Pictures)
             {
-                <img src="@p.Url" class="imgSize"/>
+                <img src="@Url.Content("~/Images/"+p.Url)" class="imgSize"/>
             }
         </div>
         <div class="col-6">

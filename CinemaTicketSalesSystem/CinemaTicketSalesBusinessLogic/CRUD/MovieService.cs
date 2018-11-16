@@ -51,9 +51,18 @@ namespace CinemaTicketSalesBusinessLogic.Queries
             return description;
         }
 
-        public void CreateMovie(CreateMovieModel newMovieModel)
+        /// <summary>
+        /// This method used to create a new Movie
+        /// </summary>
+        /// <param name="newMovieModel">
+        /// Parameter from UI
+        /// </param>
+        public void CreateMovie(CreateMovieModel newMovieModel, string path)
         {
             var newMovie = _mapper.Map<CreateMovieModel, Movie>(newMovieModel);
+            var newPictureModel = new AddPictureModel { Url = path };
+            var newPicture = _mapper.Map<AddPictureModel, Picture>(newPictureModel);
+            newMovie.Pictures.Add(newPicture);
             _db.Movies.Add(newMovie);
             _db.SaveChanges();
         }

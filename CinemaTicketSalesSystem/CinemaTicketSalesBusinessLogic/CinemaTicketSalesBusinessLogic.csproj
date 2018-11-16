@@ -85,6 +85,8 @@
     <Compile Include="Interfaces\IMovieService.cs" />
     <Compile Include="Manager\ApplicationUserManager.cs" />
     <Compile Include="Mappings\MovieProfile.cs" />
+    <Compile Include="Mappings\PictureProfile.cs" />
+    <Compile Include="Models\AddPictureModel.cs" />
     <Compile Include="Models\CreateMovieModel.cs" />
     <Compile Include="Models\MovieModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

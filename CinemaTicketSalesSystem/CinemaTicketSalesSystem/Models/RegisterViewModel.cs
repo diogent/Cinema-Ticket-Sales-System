@@ -18,6 +18,5 @@ namespace CinemaTicketSalesSystem.Models
         [Compare("Password", ErrorMessage = "Passwords do not match.")]
         [DataType(DataType.Password)]
         public string PasswordConfirm { get; set; }
-
     }
 }

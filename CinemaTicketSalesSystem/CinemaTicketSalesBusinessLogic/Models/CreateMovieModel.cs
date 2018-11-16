@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CinemaTicketSalesBusinessLogic.Models
 {
@@ -11,6 +8,12 @@ namespace CinemaTicketSalesBusinessLogic.Models
         public string Name { get; set; }    
         public string Description { get; set; }
         public DateTime DateOfPremiere { get; set; }
-        public string AgeRating { get; set; }
+        public string AgeRating { get; set; }        
+        public IList<AddPictureModel> Pictures { get; set; }
+
+        public CreateMovieModel()
+        {
+            Pictures = new List<AddPictureModel>();
+        }
     }
 }

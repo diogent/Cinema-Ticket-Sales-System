@@ -13,6 +13,6 @@ namespace CinemaTicketSalesBusinessLogic.Interfaces
     {
         IEnumerable<MovieModel> GetMovies();
         Movie GetMovieDetails(int id);
-        void CreateMovie(CreateMovieModel newMovie);
+        void CreateMovie(CreateMovieModel newMovie, string path);
     }
 }
