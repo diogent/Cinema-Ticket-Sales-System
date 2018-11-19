@@ -10,6 +10,7 @@ namespace ApplicationDbMovies.Contexts
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Actor> Actors { get; set; }
         public DbSet<Picture> Pictures { get; set; }
+        public DbSet<Producer> Producers { get; set; }
 
         public ApplicationDbContext() : base("IdentityDb")
         {

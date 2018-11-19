@@ -4,6 +4,7 @@
     Layout = "~/Views/Shared/MasterView.cshtml";
 }
 
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
 @using (Html.BeginForm("CreateNewMovie", "EditMovie", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
@@ -42,15 +43,28 @@
     </div>
 
     <div>
+        Genre:
+        <div>
+
+        </div>
+    </div>
+
+    <div>
         <div>
             <label for="picture">Upload Image:</label>
-            <input type="file" name="picture" id="picture" />            
+            <input type="file" name="picture" id="picture" />
         </div>
     </div>
 
     <div>
         <div>
             <input type="submit" value="Upload" class="submit" />
+        </div>
+    </div>
+
+    <div>        
+        <div>
+            @Html.ActionLink("Add Actors", "Actors", "EditActors")
         </div>
     </div>
 </div>

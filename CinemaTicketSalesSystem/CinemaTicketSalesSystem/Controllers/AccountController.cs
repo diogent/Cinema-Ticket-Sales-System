@@ -79,9 +79,7 @@ namespace CinemaTicketSalesSystem.Controllers
         {
             AuthenticationManager.SignOut();
             return RedirectToAction("Register");
-        }
-
-     
+        }     
 
         [HttpGet]
         public ActionResult Register()

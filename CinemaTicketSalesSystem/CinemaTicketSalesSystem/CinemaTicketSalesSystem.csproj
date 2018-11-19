@@ -193,13 +193,19 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\EditActorsController.cs" />
     <Compile Include="Controllers\EditMovieController.cs" />
+    <Compile Include="Controllers\EditProducerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Mappings\ActorsProfile.cs" />
     <Compile Include="Mappings\MovieProfile.cs" />
+    <Compile Include="Mappings\ProducersProfile.cs" />
     <Compile Include="Models\CreateMovieViewModel.cs" />
+    <Compile Include="Models\EditActorsViewModel.cs" />
+    <Compile Include="Models\EditProducersViewModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\RegisterViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -226,6 +232,8 @@
     <Content Include="Views\Home\LearnMore.cshtml" />
     <Content Include="Views\Shared\MasterView.cshtml" />
     <Content Include="Views\EditMovie\CreateNewMovie.cshtml" />
+    <Content Include="Views\EditActors\Actors.cshtml" />
+    <Content Include="Views\EditProducer\Producer.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

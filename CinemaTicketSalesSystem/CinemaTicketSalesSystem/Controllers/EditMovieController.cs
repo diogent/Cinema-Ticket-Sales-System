@@ -31,13 +31,18 @@ namespace CinemaTicketSalesSystem.Controllers
         {   
             if (!ModelState.IsValid)
                 return View(movieModel);
-            string path = _getPicturePath(picture);
+            string path = getPicturePath(picture);
             var newMovie = _mapper.Map<CreateMovieViewModel, CreateMovieModel>(movieModel);
             _movieService.CreateMovie(newMovie, path);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("EditActors", "EditActors");
         }
 
-        private string _getPicturePath(HttpPostedFileBase picture)
+        /// <summary>
+        /// This method saves picture into project's repository and gets the name of the picture.
+        /// </summary>
+        /// <param name="picture"> Picture from view </param>
+        /// <returns> Name of the picture </returns>
+        private string getPicturePath(HttpPostedFileBase picture)
         {
             string namePicture = Path.GetFileName(picture.FileName);
             string path = Path.Combine(Server.MapPath("~/Images/"), namePicture);

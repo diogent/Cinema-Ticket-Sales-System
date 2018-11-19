@@ -6,7 +6,6 @@ using ApplicationDbMovies.Models;
 using CinemaTicketSalesBusinessLogic.Interfaces;
 using AutoMapper;
 using CinemaTicketSalesBusinessLogic.Models;
-using System;
 
 namespace CinemaTicketSalesBusinessLogic.Queries
 {
