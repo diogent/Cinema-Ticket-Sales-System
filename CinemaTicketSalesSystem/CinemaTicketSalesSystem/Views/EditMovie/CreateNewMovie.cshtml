@@ -3,8 +3,12 @@
     ViewBag.Title = "CreateNewMovie";
     Layout = "~/Views/Shared/MasterView.cshtml";
 }
-
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/start/jquery-ui.css">
 <link href="~/Content/bootstrap.css" rel="stylesheet" />
+<link href="~/Content/Chosen/chosen.min.css" rel="stylesheet" />
+
 @using (Html.BeginForm("CreateNewMovie", "EditMovie", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
@@ -58,13 +62,19 @@
 
     <div>
         <div>
-            <input type="submit" value="Upload" class="submit" />
+            <input type="submit" value="Save" class="submit" />
         </div>
     </div>
 
-    <div>        
+    <div>
         <div>
             @Html.ActionLink("Add Actors", "Actors", "EditActors")
+        </div>
+    </div>
+
+    <div>
+        <div>
+            @Html.ActionLink("Add Producers", "Producer", "EditProducer")
         </div>
     </div>
 </div>

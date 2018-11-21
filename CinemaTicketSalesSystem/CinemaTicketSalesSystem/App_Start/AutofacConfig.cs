@@ -41,9 +41,11 @@ namespace CinemaTicketSalesSystem.Services
                     x.AddProfiles(typeof(PictureProfile).Assembly);
                     x.AddProfiles(typeof(ActorsProfile).Assembly);
                     x.AddProfiles(typeof(ProducersProfile).Assembly);
+                    x.AddProfiles(typeof(GenresProfile).Assembly);
                     x.AddProfiles(typeof(Mappings.MovieProfile).Assembly);
                     x.AddProfiles(typeof(Mappings.ActorsProfile).Assembly);
                     x.AddProfiles(typeof(Mappings.ProducersProfile).Assembly);
+                    x.AddProfiles(typeof(Mappings.GenresProfile).Assembly);
 
 
                 });

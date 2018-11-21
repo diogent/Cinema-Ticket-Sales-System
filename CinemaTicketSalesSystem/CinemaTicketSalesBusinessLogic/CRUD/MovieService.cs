@@ -23,12 +23,12 @@ namespace CinemaTicketSalesBusinessLogic.Queries
         /// <summary>
         /// Using in HomeController for viewing Movies collection on the Main page.
         /// </summary>        
-        public IEnumerable<MovieModel> GetMovies()
+        public IEnumerable<MovieInfoModel> GetMovies()
         {
             var movies = _db.Movies.Include(x => x.Pictures).ToList();
             var movieModels = movies.Select(m =>
                 {
-                    var movieModel = _mapper.Map<Movie, MovieModel>(m);
+                    var movieModel = _mapper.Map<Movie, MovieInfoModel>(m);
                     movieModel.Url = m.Pictures.FirstOrDefault()?.Url;
                     movieModel.MovieId = m.Id;
                     movieModel.MovieName = m.Name;

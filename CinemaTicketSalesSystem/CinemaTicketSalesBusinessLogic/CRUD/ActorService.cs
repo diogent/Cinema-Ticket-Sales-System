@@ -3,11 +3,8 @@ using ApplicationDbMovies.Models;
 using AutoMapper;
 using CinemaTicketSalesBusinessLogic.Interfaces;
 using CinemaTicketSalesBusinessLogic.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CinemaTicketSalesBusinessLogic.CRUD
 {
@@ -31,6 +28,22 @@ namespace CinemaTicketSalesBusinessLogic.CRUD
             var newActor = _mapper.Map<AddActorsModel, Actor>(addActorsModel);
             _db.Actors.Add(newActor);
             _db.SaveChanges();    
+        }
+
+        /// <summary>
+        /// Gets all actors for mapping into ActorsViewModel. Need for selecting actors with chosen.
+        /// </summary>
+        /// <returns>ActorsModel collection</returns>
+        public IEnumerable<ActorsModel> GetActorsModel()
+        {
+            var actors = _db.Actors.ToList();
+            var actorsModels = actors.Select(m =>
+            {
+                var actorsModel = _mapper.Map<Actor, ActorsModel>(m);
+                return actorsModel;
+            });
+
+            return actorsModels;
         }
     }
 }

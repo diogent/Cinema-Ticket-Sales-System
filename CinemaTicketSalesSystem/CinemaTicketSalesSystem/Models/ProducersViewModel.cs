@@ -1,9 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 
-namespace CinemaTicketSalesBusinessLogic.Models
+namespace CinemaTicketSalesSystem.Models
 {
-    public class AddProducersModel
+    public class ProducersViewModel
     {
+        public int Id { get; set; }
         public string FirstName { get; set; }
         public string SecondName { get; set; }
         public string LastName { get; set; }

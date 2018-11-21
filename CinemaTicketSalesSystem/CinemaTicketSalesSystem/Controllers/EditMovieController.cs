@@ -3,9 +3,11 @@ using CinemaTicketSalesBusinessLogic.Interfaces;
 using CinemaTicketSalesBusinessLogic.Models;
 using CinemaTicketSalesSystem.Models;
 using System.Web.Mvc;
-using System.Linq;
 using System.Web;
 using System.IO;
+using System.Collections;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace CinemaTicketSalesSystem.Controllers
 {
@@ -48,6 +50,6 @@ namespace CinemaTicketSalesSystem.Controllers
             string path = Path.Combine(Server.MapPath("~/Images/"), namePicture);
             picture.SaveAs(path);
             return namePicture;
-        }
+        }       
     }
 }

@@ -25,7 +25,7 @@ namespace CinemaTicketSalesSystem.Controllers
         public ActionResult Index()
         {
             var movieModel = _dbService.GetMovies();           
-            var movieViewModel = _mapper.Map<IEnumerable<MovieModel>, IEnumerable<MovieViewModel>>(movieModel);
+            var movieViewModel = _mapper.Map<IEnumerable<MovieInfoModel>, IEnumerable<MovieViewModel>>(movieModel);
             return View(movieViewModel);
         }        
 

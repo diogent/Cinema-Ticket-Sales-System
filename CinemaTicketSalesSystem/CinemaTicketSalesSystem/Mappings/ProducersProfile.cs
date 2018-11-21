@@ -9,6 +9,7 @@ namespace CinemaTicketSalesSystem.Mappings
         public ProducersProfile()
         {
             CreateMap<EditProducersViewModel, AddProducersModel>();
+            CreateMap<ProducersModel, ProducersViewModel>();
         }
     }
 }

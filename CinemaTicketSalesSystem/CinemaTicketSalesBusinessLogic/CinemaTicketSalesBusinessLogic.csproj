@@ -89,14 +89,19 @@
     <Compile Include="Interfaces\IProducerService.cs" />
     <Compile Include="Manager\ApplicationUserManager.cs" />
     <Compile Include="Mappings\ActorsProfile.cs" />
+    <Compile Include="Mappings\GenresProfile.cs" />
     <Compile Include="Mappings\MovieProfile.cs" />
     <Compile Include="Mappings\PictureProfile.cs" />
     <Compile Include="Mappings\ProducersProfile.cs" />
+    <Compile Include="Models\ActorsModel.cs" />
     <Compile Include="Models\AddActorsModel.cs" />
     <Compile Include="Models\AddPictureModel.cs" />
     <Compile Include="Models\AddProducersModel.cs" />
     <Compile Include="Models\CreateMovieModel.cs" />
+    <Compile Include="Models\GenresModel.cs" />
+    <Compile Include="Models\MovieInfoModel.cs" />
     <Compile Include="Models\MovieModel.cs" />
+    <Compile Include="Models\ProducersModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CRUD\MovieService.cs" />
   </ItemGroup>

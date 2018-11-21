@@ -2,10 +2,6 @@
 using CinemaTicketSalesBusinessLogic.Interfaces;
 using CinemaTicketSalesBusinessLogic.Models;
 using CinemaTicketSalesSystem.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace CinemaTicketSalesSystem.Controllers

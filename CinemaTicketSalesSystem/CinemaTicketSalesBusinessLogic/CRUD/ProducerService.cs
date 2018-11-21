@@ -3,11 +3,6 @@ using ApplicationDbMovies.Models;
 using AutoMapper;
 using CinemaTicketSalesBusinessLogic.Interfaces;
 using CinemaTicketSalesBusinessLogic.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CinemaTicketSalesBusinessLogic.CRUD
 {

@@ -8,6 +8,7 @@ namespace CinemaTicketSalesBusinessLogic.Mappings
     {
         public MovieProfile()
         {
+            CreateMap<Movie, MovieInfoModel>();
             CreateMap<Movie, MovieModel>();
             CreateMap<CreateMovieModel, Movie>()
                 .ForMember(x => x.Name, o => o.MapFrom(s => s.Name))

@@ -4,12 +4,11 @@ using CinemaTicketSalesBusinessLogic.Models;
 
 namespace CinemaTicketSalesBusinessLogic.Mappings
 {
-    public class ProducersProfile : Profile
+    public class GenresProfile : Profile
     {
-        public ProducersProfile()
+        public GenresProfile()
         {
-            CreateMap<AddProducersModel, Producer>();
-            CreateMap<Producer, ProducersModel>();
+            CreateMap<Genre, GenresModel>();
         }
     }
 }

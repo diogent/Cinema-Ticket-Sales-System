@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace CinemaTicketSalesBusinessLogic.Models
 {
-    public class MovieModel
+    public class GenresModel
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Description { get; set; }
-        public DateTime DateOfPremiere { get; set; }
-        public string AgeRating { get; set; }
     }
 }

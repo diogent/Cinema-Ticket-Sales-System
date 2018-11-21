@@ -9,8 +9,9 @@ namespace CinemaTicketSalesSystem.Mappings
     {
         public MovieProfile()
         {
-            CreateMap<MovieModel, MovieViewModel>();
+            CreateMap<MovieInfoModel, MovieViewModel>();
             CreateMap<CreateMovieViewModel, CreateMovieModel>();
+            CreateMap<MovieModel, MoviesViewModel>();
         }
     }
 }
