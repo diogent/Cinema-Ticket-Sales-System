@@ -25,11 +25,11 @@ namespace CinemaTicketSalesSystem.Controllers
         }
 
         [HttpPost]
-        public ActionResult SaveActors(EditActorsViewModel editActors)
+        public ActionResult SaveActors(CreateActorsViewModel editActors)
         {
             if (!ModelState.IsValid)
                 return View(editActors);
-            var newActor = _mapper.Map<EditActorsViewModel, AddActorsModel>(editActors);
+            var newActor = _mapper.Map<CreateActorsViewModel, AddActorsModel>(editActors);
             _actorService.SaveActor(newActor);
             return RedirectToAction("Index", "Home");
         }        

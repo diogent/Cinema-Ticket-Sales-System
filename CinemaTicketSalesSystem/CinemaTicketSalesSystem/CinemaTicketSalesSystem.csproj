@@ -222,8 +222,8 @@
     <Compile Include="Mappings\ProducersProfile.cs" />
     <Compile Include="Models\ActorsViewModel.cs" />
     <Compile Include="Models\CreateMovieViewModel.cs" />
-    <Compile Include="Models\EditActorsViewModel.cs" />
-    <Compile Include="Models\EditProducersViewModel.cs" />
+    <Compile Include="Models\CreateActorsViewModel.cs" />
+    <Compile Include="Models\CreateProducersViewModel.cs" />
     <Compile Include="Models\GenresViewModel.cs" />
     <Compile Include="Models\LearnMoreMovieViewModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />

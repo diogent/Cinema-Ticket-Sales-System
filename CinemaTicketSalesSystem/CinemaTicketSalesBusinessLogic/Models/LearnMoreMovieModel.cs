@@ -13,9 +13,9 @@ namespace CinemaTicketSalesBusinessLogic.Models
         public string Description { get; set; }
         public DateTime DateOfPremiere { get; set; }
         public string AgeRating { get; set; }
-        public virtual ICollection<GenresModel> Genres { get; set; }
-        public virtual ICollection<ProducersModel> Producers { get; set; }
-        public virtual ICollection<ActorsModel> Actors { get; set; }
-        public virtual ICollection<PicturesModel> Pictures { get; set; }
+        public ICollection<GenresModel> Genres { get; set; }
+        public ICollection<ProducersModel> Producers { get; set; }
+        public ICollection<ActorsModel> Actors { get; set; }
+        public ICollection<PicturesModel> Pictures { get; set; }
     }
 }

@@ -17,9 +17,9 @@ namespace CinemaTicketSalesSystem.Models
         public DateTime DateOfPremiere { get; set; }
 
         public string AgeRating { get; set; }
-        public virtual ICollection<GenresViewModel> Genres { get; set; }
-        public virtual ICollection<ProducersViewModel> Producers { get; set; }
-        public virtual ICollection<ActorsViewModel> Actors { get; set; }
-        public virtual ICollection<PicturesViewModel> Pictures { get; set; }
+        public ICollection<GenresViewModel> Genres { get; set; }
+        public ICollection<ProducersViewModel> Producers { get; set; }
+        public ICollection<ActorsViewModel> Actors { get; set; }
+        public ICollection<PicturesViewModel> Pictures { get; set; }
     }
 }

@@ -8,7 +8,7 @@ namespace CinemaTicketSalesSystem.Mappings
     {
         public ActorsProfile()
         {
-            CreateMap<EditActorsViewModel, AddActorsModel>();
+            CreateMap<CreateActorsViewModel, AddActorsModel>();
             CreateMap<ActorsModel, ActorsViewModel>();
         }
     }

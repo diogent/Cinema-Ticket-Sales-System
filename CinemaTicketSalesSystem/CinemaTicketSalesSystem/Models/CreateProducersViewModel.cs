@@ -1,20 +1,16 @@
-﻿using ApplicationDbMovies.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
 namespace CinemaTicketSalesSystem.Models
 {
-    public class EditActorsViewModel
+    public class CreateProducersViewModel
     {
         [Required]
-        public string FirstName { get; set; }
-                
-        public string SecondName { get; set; }
-                
+        public string FirstName { get; set; }        
+        public string SecondName { get; set; }        
         public string LastName { get; set; }
 
         [DataType(DataType.Date)]

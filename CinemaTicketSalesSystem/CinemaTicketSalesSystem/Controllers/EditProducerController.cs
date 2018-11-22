@@ -25,9 +25,9 @@ namespace CinemaTicketSalesSystem.Controllers
         }
 
         [HttpPost]
-        public ActionResult SaveProducers(EditProducersViewModel editProducers)
+        public ActionResult SaveProducers(CreateProducersViewModel editProducers)
         {
-            var newProducer = _mapper.Map<EditProducersViewModel, AddProducersModel>(editProducers);
+            var newProducer = _mapper.Map<CreateProducersViewModel, AddProducersModel>(editProducers);
             _producerService.SaveProducer(newProducer);
             return RedirectToAction("CreateNewMovie", "EditMovie");
         }
