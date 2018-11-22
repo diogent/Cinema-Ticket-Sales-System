@@ -1,0 +1,96 @@
+﻿@model CinemaTicketSalesSystem.Models.CreateMovieViewModel
+@{
+    ViewBag.Title = "CreateNewMovie";
+    Layout = "~/Views/Shared/MasterView.cshtml";
+}
+
+@using (Html.BeginForm("CreateNewMovie", "EditMovie", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+<div>
+    <h4>Create new movie</h4>
+    <hr />
+    @Html.ValidationSummary(false)
+
+    <div>
+        Movie name:
+        <div>
+            @Html.EditorFor(model => model.Name)
+        </div>
+    </div>
+
+    <div>
+        Description:
+        <div>
+            @Html.EditorFor(model => model.Description)
+        </div>
+    </div>
+
+    <div>
+        Age rating:
+        <div>
+            @Html.EditorFor(model => model.AgeRating)
+        </div>
+    </div>
+
+    <div>
+        Date of premiere:
+        <div>
+            @Html.EditorFor(model => model.DateOfPremiere)
+        </div>
+    </div>
+
+    <div>
+        <div>
+            <label>Select actors:</label>
+            @Html.ListBoxFor(m => m.SelectedActorsIds, new MultiSelectList(Model.Actors, "Id", "FirstName"), new { @class = "chosen-select", @multiple = "true" })            
+        </div>
+    </div>
+
+    <div>
+        <div>
+            <label>Select genres:</label>
+            @Html.ListBoxFor(m => m.SelectedGenresIds, new MultiSelectList(Model.Genres, "Id", "Name"), new { @class = "chosen-select", @multiple = "true" })            
+        </div>
+    </div>
+
+    <div>
+        <div>
+            <label>Select producers:</label>
+            @Html.ListBoxFor(m => m.SelectedProducersIds, new MultiSelectList(Model.Producers, "Id", "FirstName"), new { @class = "chosen-select", @multiple = "true" })
+            <script>
+                $(document).ready(function () {
+                    $(".chosen-select").chosen({ width: "50%" });
+                });
+            </script>
+        </div>
+    </div>
+
+    <div>
+        <div>
+            <label for="picture">Upload Image:</label>
+            <input type="file" name="picture" id="picture" />
+        </div>
+    </div>
+
+    <div>
+        <div>
+            <input type="submit" value="Save" class="submit" />
+        </div>
+    </div>
+
+    <div>
+        <div>
+            @Html.ActionLink("Add Actors", "Actors", "EditActors")
+        </div>
+    </div>
+
+    <div>
+        <div>
+            @Html.ActionLink("Add Producers", "Producer", "EditProducer")
+        </div>
+    </div>
+</div>
+}
+

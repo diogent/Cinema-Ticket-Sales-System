@@ -1,0 +1,52 @@
+﻿@model CinemaTicketSalesSystem.Models.EditActorsViewModel
+@{
+    ViewBag.Title = "Actors";
+    Layout = "~/Views/Shared/MasterView.cshtml";
+}
+
+<h2>Actors</h2>
+@using (Html.BeginForm("SaveActors", "EditActors", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    
+    <div>
+        
+        <div>
+             
+        </div>
+    </div>
+    
+    <div>
+        First name:
+        <div>
+            @Html.EditorFor(model => model.FirstName)
+        </div>
+    </div>
+
+    <div>
+        Second name (if exists):
+        <div>
+            @Html.EditorFor(model => model.SecondName)
+        </div>
+    </div>
+
+    <div>
+        Last name (if exists):
+        <div>
+            @Html.EditorFor(model => model.LastName)
+        </div>
+    </div>
+
+    <div>
+        Date of birth:
+        <div>
+            @Html.EditorFor(model => model.DateOfBirth)
+        </div>
+    </div>
+
+    <div>
+        <div>
+            <input type="submit" value="Save" class="submit" />
+        </div>
+    </div>
+}

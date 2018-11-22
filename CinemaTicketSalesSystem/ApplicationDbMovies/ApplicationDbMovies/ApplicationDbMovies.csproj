@@ -46,6 +46,10 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -58,12 +62,16 @@
     <Compile Include="Configurations\MovieGenreConfig.cs" />
     <Compile Include="Configurations\MovieProducerConfig.cs" />
     <Compile Include="Contexts\ApplicationDbContext.cs" />
+    <Compile Include="Migrations\201811081205086_InitialCreate.cs" />
+    <Compile Include="Migrations\201811081205086_InitialCreate.Designer.cs">
+      <DependentUpon>201811081205086_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Actor.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Models\MoviesInit.cs" />
-    <Compile Include="ViewModels\MovieViewModel.cs" />
     <Compile Include="Models\Picture.cs" />
     <Compile Include="Models\Producer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -74,6 +82,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201811081205086_InitialCreate.resx">
+      <DependentUpon>201811081205086_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

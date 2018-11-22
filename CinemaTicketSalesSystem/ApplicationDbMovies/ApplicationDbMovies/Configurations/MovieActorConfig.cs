@@ -1,5 +1,10 @@
-﻿using System.Data.Entity.ModelConfiguration;
-using ApplicationDbMovies.Models;
+﻿using ApplicationDbMovies.Models;
+using System;
+using System.Collections.Generic;
+using System.Data.Entity.ModelConfiguration;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace ApplicationDbMovies.Configurations
 {
@@ -8,7 +13,7 @@ namespace ApplicationDbMovies.Configurations
         public MovieActorConfig()
         {
             this.HasMany(m => m.Movies)
-                .WithMany(a => a.Actors)
+                .WithMany(g => g.Actors)
                 .Map(t => t.MapLeftKey("ActorId")
                 .MapRightKey("MovieId")
                 .ToTable("MovieActor"));

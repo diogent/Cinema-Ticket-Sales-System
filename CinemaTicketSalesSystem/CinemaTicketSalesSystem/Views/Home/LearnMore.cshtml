@@ -1,5 +1,4 @@
-﻿@using ApplicationDbMovies.Models
-@model Movie
+﻿@model CinemaTicketSalesSystem.Models.LearnMoreMovieViewModel
 @{
     Layout = "/Views/Shared/MasterView.cshtml";
 }
@@ -9,12 +8,19 @@
         <div class="col-5">
             @foreach (var p in Model.Pictures)
             {
-                <img src="@p.Url" class="imgSize"/>
+                <img src="@Url.Content("~/Images/"+p.Url)" class="imgSize"/>
             }
         </div>
         <div class="col-6">
             <h1> @Html.DisplayFor(model => model.Name) </h1>
             <h6>World Premiere: @Html.DisplayFor(model => model.DateOfPremiere) </h6>
+            <h6>
+                Genre:
+                @foreach(var g in Model.Genres)
+                {
+                    <a>@g.Name,</a>
+                }
+            </h6>
             <h6 class="h6-for-producers">
                 Directed by:
                 @foreach (var p in Model.Producers)
