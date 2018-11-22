@@ -1,5 +1,6 @@
 ﻿
 @{
+    ViewBag.Title = "Home page";
     Layout = null;
 }
 
@@ -7,10 +8,10 @@
 
 <html>
 <head>
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/chosen")
+    <meta name="viewport" content="width=device-width" />
+    @Scripts.Render("~/bundles/jquery")    
     @Styles.Render("~/bundles/chosenStyles")
-    <title>Home page</title>
+    @Styles.Render("~/bundles/mainStyles")    
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -32,8 +33,6 @@
     <div>
         @RenderBody()
     </div>
-    <link href="~/Content/bootstrap.css" rel="stylesheet" />
-    <meta name="viewport" content="width=device-width" />
-    <link href="~/Content/LearnMoreCSS.css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/chosen")
 </body>
 </html>

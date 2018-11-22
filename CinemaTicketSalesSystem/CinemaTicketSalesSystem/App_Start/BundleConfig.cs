@@ -13,6 +13,8 @@ namespace CinemaTicketSalesSystem.App_Start
                 "~/Content/ChosenStyles/chosen.min.css"));
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                 "~/Scripts/jquery-{version}.js"));
+            bundles.Add(new StyleBundle("~/bundles/mainStyles").Include(
+                "~/Content/bootstrap.css", "~/Content/LearnMoreCSS.css"));
         }
     }
 }
