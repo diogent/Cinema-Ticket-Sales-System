@@ -253,7 +253,6 @@
     <Content Include="Views\EditMovie\CreateNewMovie.cshtml" />
     <Content Include="Views\EditActors\Actors.cshtml" />
     <Content Include="Views\EditProducer\Producer.cshtml" />
-    <Content Include="Views\EditActors\SelectActors.cshtml" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
     <None Include="Web.Debug.config">

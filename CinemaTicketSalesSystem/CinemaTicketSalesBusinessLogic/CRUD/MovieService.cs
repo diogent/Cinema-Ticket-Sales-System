@@ -58,12 +58,29 @@ namespace CinemaTicketSalesBusinessLogic.Queries
         /// </param>
         public void CreateMovie(CreateMovieModel newMovieModel, string path)
         {
+            var producerIds = newMovieModel.SelectedProducersIds;
+            var genresIds = newMovieModel.SelectedGenresIds;
+            var actorsIds = newMovieModel.SelectedActorsIds;
             var newMovie = _mapper.Map<CreateMovieModel, Movie>(newMovieModel);
             var newPictureModel = new AddPictureModel { Url = path };
             var newPicture = _mapper.Map<AddPictureModel, Picture>(newPictureModel);
             newMovie.Pictures.Add(newPicture);
-            _db.Movies.Add(newMovie);
+            foreach (var p in _db.Producers.Where(x => producerIds.Contains(x.Id)))
+            {
+                newMovie.Producers.Add(p);
+            }
+
+            foreach (var g in _db.Genres.Where(x => genresIds.Contains(x.Id)))
+            {
+                newMovie.Genres.Add(g);
+            }
+
+            foreach (var a in _db.Actors.Where(x => actorsIds.Contains(x.Id)))
+            {
+                newMovie.Actors.Add(a);
+            }
+            _db.Movies.Add(newMovie);                   
             _db.SaveChanges();
-        }
+        }      
     }
 }

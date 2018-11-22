@@ -15,6 +15,13 @@
         <div class="col-6">
             <h1> @Html.DisplayFor(model => model.Name) </h1>
             <h6>World Premiere: @Html.DisplayFor(model => model.DateOfPremiere) </h6>
+            <h6>
+                Genre:
+                @foreach(var g in Model.Genres)
+                {
+                    <a>@g.Name,</a>
+                }
+            </h6>
             <h6 class="h6-for-producers">
                 Directed by:
                 @foreach (var p in Model.Producers)

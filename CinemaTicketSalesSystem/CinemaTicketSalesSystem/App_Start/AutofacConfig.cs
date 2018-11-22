@@ -31,6 +31,7 @@ namespace CinemaTicketSalesSystem.Services
             builder.RegisterType<MovieService>().As<IMovieService>().InstancePerRequest();
             builder.RegisterType<ActorService>().As<IActorService>().InstancePerRequest();
             builder.RegisterType<ProducerService>().As<IProducerService>().InstancePerRequest();
+            builder.RegisterType<GenreService>().As<IGenreService>().InstancePerRequest();
 
 
             builder.Register(context =>

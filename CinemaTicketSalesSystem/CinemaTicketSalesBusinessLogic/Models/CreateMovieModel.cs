@@ -10,6 +10,10 @@ namespace CinemaTicketSalesBusinessLogic.Models
         public DateTime DateOfPremiere { get; set; }
         public string AgeRating { get; set; }        
         public IList<AddPictureModel> Pictures { get; set; }
+        public IEnumerable<int> SelectedGenresIds { get; set; }
+        public IEnumerable<int> SelectedProducersIds { get; set; }
+        public IEnumerable<int> SelectedActorsIds { get; set; }
+
 
         public CreateMovieModel()
         {

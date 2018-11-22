@@ -20,17 +20,6 @@ namespace CinemaTicketSalesBusinessLogic.CRUD
         }
 
         /// <summary>
-        /// Saves new Actor in database
-        /// </summary>
-        /// <param name="addActorsModel">Model from view</param>
-        public void SaveActor(AddActorsModel addActorsModel)
-        {
-            var newActor = _mapper.Map<AddActorsModel, Actor>(addActorsModel);
-            _db.Actors.Add(newActor);
-            _db.SaveChanges();    
-        }
-
-        /// <summary>
         /// Gets all actors for mapping into ActorsViewModel. Need for selecting actors with chosen.
         /// </summary>
         /// <returns>ActorsModel collection</returns>
@@ -45,5 +34,16 @@ namespace CinemaTicketSalesBusinessLogic.CRUD
 
             return actorsModels;
         }
+
+        /// <summary>
+        /// Saves new Actor in database
+        /// </summary>
+        /// <param name="addActorsModel">Model from view</param>
+        public void SaveActor(AddActorsModel addActorsModel)
+        {
+            var newActor = _mapper.Map<AddActorsModel, Actor>(addActorsModel);
+            _db.Actors.Add(newActor);
+            _db.SaveChanges();    
+        }        
     }
 }

@@ -15,17 +15,37 @@ namespace CinemaTicketSalesSystem.Controllers
     {
         private readonly IMovieService _movieService;
         private readonly IMapper _mapper;
-        public EditMovieController(IMovieService movieService, IMapper mapper)
+        private readonly IActorService _actorService;
+        private readonly IGenreService _genreService;
+        private readonly IProducerService _producerService;
+
+        public EditMovieController(
+             IMovieService movieService,
+             IMapper mapper,
+             IProducerService producerService,
+             IGenreService genreService,
+             IActorService actorService)
         {           
             _movieService = movieService;
             _mapper = mapper;
+            _actorService = actorService;
+            _producerService = producerService;
+            _genreService = genreService;
         }
 
         [HttpGet]
         public ActionResult CreateNewMovie()
         {
-
-            return View();
+            var genresList = getGenresList();
+            var actorsList = getActorsList();
+            var producersList = getProducersList();
+            var infoForSelect = new CreateMovieViewModel
+            {
+                Actors = actorsList,
+                Genres = genresList,
+                Producers = producersList                
+            };
+            return View(infoForSelect);
         }
 
         [HttpPost]
@@ -50,6 +70,42 @@ namespace CinemaTicketSalesSystem.Controllers
             string path = Path.Combine(Server.MapPath("~/Images/"), namePicture);
             picture.SaveAs(path);
             return namePicture;
-        }       
+        }      
+        
+        /// <summary>
+        /// Gets the list of actors.
+        /// </summary>
+        /// <returns></returns>
+        private IEnumerable<ActorsViewModel> getActorsList()
+        {
+            var actorsModel = _actorService.GetActorsModel();
+            var actorsModels = _mapper.Map<IEnumerable<ActorsModel>,
+                IEnumerable<ActorsViewModel>>(actorsModel);
+            return actorsModels;
+        }
+
+        /// <summary>
+        /// Gets the list of producers
+        /// </summary>
+        /// <returns></returns>
+        private IEnumerable<ProducersViewModel> getProducersList()
+        {
+            var producersModel = _producerService.GetProducersModel();
+            var producersModels = _mapper.Map<IEnumerable<ProducersModel>,
+                IEnumerable<ProducersViewModel>>(producersModel);
+            return producersModels;
+        }
+
+        /// <summary>
+        /// Gets the list of genres
+        /// </summary>
+        /// <returns></returns>
+        private IEnumerable<GenresViewModel> getGenresList()
+        {
+            var genresModel = _genreService.GetGenresModel();
+            var genresModels = _mapper.Map<IEnumerable<GenresModel>,
+                IEnumerable<GenresViewModel>>(genresModel);
+            return genresModels;
+        }
     }
 }

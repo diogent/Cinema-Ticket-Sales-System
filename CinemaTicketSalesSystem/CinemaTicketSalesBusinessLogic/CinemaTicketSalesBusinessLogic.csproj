@@ -83,8 +83,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CRUD\ActorService.cs" />
+    <Compile Include="CRUD\GenreService.cs" />
     <Compile Include="CRUD\ProducerService.cs" />
     <Compile Include="Interfaces\IActorService.cs" />
+    <Compile Include="Interfaces\IGenreService.cs" />
     <Compile Include="Interfaces\IMovieService.cs" />
     <Compile Include="Interfaces\IProducerService.cs" />
     <Compile Include="Manager\ApplicationUserManager.cs" />

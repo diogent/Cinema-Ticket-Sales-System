@@ -3,11 +3,10 @@
     ViewBag.Title = "CreateNewMovie";
     Layout = "~/Views/Shared/MasterView.cshtml";
 }
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/start/jquery-ui.css">
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/chosen")
+@Styles.Render("~/bundles/chosenStyles")
 <link href="~/Content/bootstrap.css" rel="stylesheet" />
-<link href="~/Content/Chosen/chosen.min.css" rel="stylesheet" />
 
 @using (Html.BeginForm("CreateNewMovie", "EditMovie", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
@@ -47,9 +46,28 @@
     </div>
 
     <div>
-        Genre:
         <div>
+            <label>Select actors:</label>
+            @Html.ListBoxFor(m => m.SelectedActorsIds, new MultiSelectList(Model.Actors, "Id", "FirstName"), new { @class = "chosen-select", @multiple = "true" })            
+        </div>
+    </div>
 
+    <div>
+        <div>
+            <label>Select genres:</label>
+            @Html.ListBoxFor(m => m.SelectedGenresIds, new MultiSelectList(Model.Genres, "Id", "Name"), new { @class = "chosen-select", @multiple = "true" })            
+        </div>
+    </div>
+
+    <div>
+        <div>
+            <label>Select producers:</label>
+            @Html.ListBoxFor(m => m.SelectedProducersIds, new MultiSelectList(Model.Producers, "Id", "FirstName"), new { @class = "chosen-select", @multiple = "true" })
+            <script>
+                $(document).ready(function () {
+                    $(".chosen-select").chosen({ width: "50%" });
+                });
+            </script>
         </div>
     </div>
 
