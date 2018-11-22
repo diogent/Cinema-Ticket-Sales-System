@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using ApplicationDbMovies.Configurations;
 using CinemaTicketSalesBusinessLogic.Mappings;
 using CinemaTicketSalesBusinessLogic.CRUD;
+using System.Reflection;
 
 namespace CinemaTicketSalesSystem.Services
 {
@@ -28,10 +29,12 @@ namespace CinemaTicketSalesSystem.Services
                 DataProtectionProvider = new Microsoft.Owin.Security.DataProtection.DpapiDataProtectionProvider("CinemaTicketSalesSystem")
             }).InstancePerRequest();
             builder.RegisterType<ApplicationUserManager>().AsSelf().InstancePerRequest();
-            builder.RegisterType<MovieService>().As<IMovieService>().InstancePerRequest();
-            builder.RegisterType<ActorService>().As<IActorService>().InstancePerRequest();
-            builder.RegisterType<ProducerService>().As<IProducerService>().InstancePerRequest();
-            builder.RegisterType<GenreService>().As<IGenreService>().InstancePerRequest();
+
+            
+            builder.RegisterAssemblyTypes(typeof(MovieService).Assembly)
+                .Where(t => t.Name.EndsWith("Service"))
+                .AsImplementedInterfaces()
+                .InstancePerRequest();
 
 
             builder.Register(context =>
@@ -39,16 +42,7 @@ namespace CinemaTicketSalesSystem.Services
                 var config = new MapperConfiguration(x =>
                 {
                     x.AddProfiles(typeof(MovieProfile).Assembly);
-                    x.AddProfiles(typeof(PictureProfile).Assembly);
-                    x.AddProfiles(typeof(ActorsProfile).Assembly);
-                    x.AddProfiles(typeof(ProducersProfile).Assembly);
-                    x.AddProfiles(typeof(GenresProfile).Assembly);
                     x.AddProfiles(typeof(Mappings.MovieProfile).Assembly);
-                    x.AddProfiles(typeof(Mappings.ActorsProfile).Assembly);
-                    x.AddProfiles(typeof(Mappings.ProducersProfile).Assembly);
-                    x.AddProfiles(typeof(Mappings.GenresProfile).Assembly);
-
-
                 });
 
                 return config;

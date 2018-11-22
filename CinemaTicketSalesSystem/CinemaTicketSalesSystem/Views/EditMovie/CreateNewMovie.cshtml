@@ -3,10 +3,6 @@
     ViewBag.Title = "CreateNewMovie";
     Layout = "~/Views/Shared/MasterView.cshtml";
 }
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/chosen")
-@Styles.Render("~/bundles/chosenStyles")
-<link href="~/Content/bootstrap.css" rel="stylesheet" />
 
 @using (Html.BeginForm("CreateNewMovie", "EditMovie", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {

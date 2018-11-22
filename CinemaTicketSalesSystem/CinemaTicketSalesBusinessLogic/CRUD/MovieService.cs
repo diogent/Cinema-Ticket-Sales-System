@@ -30,8 +30,6 @@ namespace CinemaTicketSalesBusinessLogic.Queries
                 {
                     var movieModel = _mapper.Map<Movie, MovieInfoModel>(m);
                     movieModel.Url = m.Pictures.FirstOrDefault()?.Url;
-                    movieModel.MovieId = m.Id;
-                    movieModel.MovieName = m.Name;
                     return movieModel;
                 });
             return movieModels;
@@ -44,10 +42,11 @@ namespace CinemaTicketSalesBusinessLogic.Queries
         /// Using to find the relative data.
         /// </param>
         /// <returns></returns>
-        public Movie GetMovieDetails(int id)
+        public LearnMoreMovieModel GetMovieDetails(int id)
         {
             var description = _db.Movies.Find(id);
-            return description;
+            var learnMoreMovie = _mapper.Map<Movie, LearnMoreMovieModel>(description);
+            return learnMoreMovie;
         }
 
         /// <summary>

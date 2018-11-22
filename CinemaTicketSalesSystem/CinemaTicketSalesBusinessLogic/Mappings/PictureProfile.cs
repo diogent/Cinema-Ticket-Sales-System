@@ -9,6 +9,7 @@ namespace CinemaTicketSalesBusinessLogic.Mappings
         public PictureProfile()
         {
             CreateMap<AddPictureModel, Picture>();
+            CreateMap<Picture, PicturesModel>();
         }
     }
 }

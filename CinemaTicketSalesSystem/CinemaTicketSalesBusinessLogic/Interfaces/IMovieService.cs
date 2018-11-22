@@ -7,7 +7,7 @@ namespace CinemaTicketSalesBusinessLogic.Interfaces
     public interface IMovieService
     {
         IEnumerable<MovieInfoModel> GetMovies();
-        Movie GetMovieDetails(int id);
+        LearnMoreMovieModel GetMovieDetails(int id);
         void CreateMovie(CreateMovieModel newMovie, string path);
     }
 }

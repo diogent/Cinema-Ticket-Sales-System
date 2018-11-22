@@ -25,12 +25,7 @@ namespace CinemaTicketSalesBusinessLogic.CRUD
         public IEnumerable<GenresModel> GetGenresModel()
         {
             var genres = _db.Genres.ToList();
-            var genresModels = genres.Select(m =>
-            {
-                var genresModel = _mapper.Map<Genre, GenresModel>(m);
-                return genresModel;
-            });
-
+            var genresModels = _mapper.Map<IEnumerable<Genre>, IEnumerable<GenresModel>>(genres);
             return genresModels;
         }
     }

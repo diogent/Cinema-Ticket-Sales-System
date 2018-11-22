@@ -218,14 +218,17 @@
     <Compile Include="Mappings\ActorsProfile.cs" />
     <Compile Include="Mappings\GenresProfile.cs" />
     <Compile Include="Mappings\MovieProfile.cs" />
+    <Compile Include="Mappings\PictureProfile.cs" />
     <Compile Include="Mappings\ProducersProfile.cs" />
     <Compile Include="Models\ActorsViewModel.cs" />
     <Compile Include="Models\CreateMovieViewModel.cs" />
     <Compile Include="Models\EditActorsViewModel.cs" />
     <Compile Include="Models\EditProducersViewModel.cs" />
     <Compile Include="Models\GenresViewModel.cs" />
+    <Compile Include="Models\LearnMoreMovieViewModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\MoviesViewModel.cs" />
+    <Compile Include="Models\PicturesViewModel.cs" />
     <Compile Include="Models\ProducersViewModel.cs" />
     <Compile Include="Models\RegisterViewModel.cs" />
     <Compile Include="Models\SetRelativeViewModel.cs" />

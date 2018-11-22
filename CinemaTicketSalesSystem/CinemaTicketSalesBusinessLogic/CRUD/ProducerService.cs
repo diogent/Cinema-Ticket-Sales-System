@@ -36,12 +36,7 @@ namespace CinemaTicketSalesBusinessLogic.CRUD
         public IEnumerable<ProducersModel> GetProducersModel()
         {
             var producers = _db.Producers.ToList();
-            var producersModels = producers.Select(m =>
-            {
-                var producersModel = _mapper.Map<Producer, ProducersModel>(m);
-                return producersModel;
-            });
-
+            var producersModels = _mapper.Map<IEnumerable<Producer>, IEnumerable<ProducersModel>>(producers);
             return producersModels;
         }
     }

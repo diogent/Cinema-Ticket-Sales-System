@@ -12,6 +12,7 @@ namespace CinemaTicketSalesSystem.Mappings
             CreateMap<MovieInfoModel, MovieViewModel>();
             CreateMap<CreateMovieViewModel, CreateMovieModel>();
             CreateMap<MovieModel, MoviesViewModel>();
+            CreateMap<LearnMoreMovieModel, LearnMoreMovieViewModel>();
         }
     }
 }

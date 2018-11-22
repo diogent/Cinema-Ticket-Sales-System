@@ -4,6 +4,7 @@ using AutoMapper;
 using CinemaTicketSalesSystem.ViewModels;
 using System.Collections.Generic;
 using CinemaTicketSalesBusinessLogic.Models;
+using CinemaTicketSalesSystem.Models;
 
 namespace CinemaTicketSalesSystem.Controllers
 {
@@ -33,9 +34,10 @@ namespace CinemaTicketSalesSystem.Controllers
         public ActionResult LearnMore(int id)
         {            
             var description = _dbService.GetMovieDetails(id);
-            if (description == null)
+            var learnMoreMovie = _mapper.Map<LearnMoreMovieModel, LearnMoreMovieViewModel>(description);
+            if (learnMoreMovie == null)
                 return HttpNotFound();
-            return View(description);
+            return View(learnMoreMovie);
         }
     }
 }
