@@ -1,0 +1,28 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+   
+    @Html.AntiForgeryToken()
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                @Html.ActionLink("Create New", "CreateNewMovie", "EditMovie")
+            </li>
+            <li class="nav-item">
+                @Html.ActionLink("Hello, " + User.Identity.GetUserName() + "!", "Index", "Home")
+            </li>
+            <li class="nav-item">
+                @Html.ActionLink("Logout", "Logout", "Account")
+            </li>
+        </ul>    
+}
+else
+{
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            @Html.ActionLink("Login", "Login", "Account")
+        </li>
+        <li class="nav-item">
+            @Html.ActionLink("Sign Up", "Register", "Account")
+        </li>
+    </ul>
+}

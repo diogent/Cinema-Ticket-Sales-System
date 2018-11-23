@@ -1,0 +1,18 @@
+﻿@model CinemaTicketSalesSystem.Models.EditRoleViewModel
+@{
+    ViewBag.Title = "Edit Role";
+    Layout = "~/Views/Shared/MasterView.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div>
+        @Html.ValidationSummary(true, "")
+        @Html.HiddenFor(model => model.Id)
+        <p>Name:  @Html.EditorFor(model => model.Name)</p>
+        <p>Description: @Html.EditorFor(model => model.Description)</p>
+        <p><input type="submit" value="Save changes" /></p>
+    </div>
+}

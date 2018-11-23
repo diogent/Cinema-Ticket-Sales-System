@@ -6,13 +6,10 @@ using ApplicationDbMovies.Contexts;
 using ApplicationDbMovies.Models;
 using CinemaTicketSalesBusinessLogic.Models;
 using CinemaTicketSalesBusinessLogic.Queries;
-using CinemaTicketSalesBusinessLogic.Interfaces;
 using AutoMapper;
-using System.Collections.Generic;
-using ApplicationDbMovies.Configurations;
 using CinemaTicketSalesBusinessLogic.Mappings;
-using CinemaTicketSalesBusinessLogic.CRUD;
-using System.Reflection;
+using CinemaTicketSalesBusinessLogic.Manager;
+using Microsoft.AspNet.Identity;
 
 namespace CinemaTicketSalesSystem.Services
 {
@@ -23,12 +20,18 @@ namespace CinemaTicketSalesSystem.Services
             var builder = new ContainerBuilder();
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
             builder.RegisterType<ApplicationDbContext>().AsSelf().InstancePerRequest();
-            builder.Register<UserStore<ApplicationUser>>(c => new UserStore<ApplicationUser>(c.Resolve<ApplicationDbContext>())).AsImplementedInterfaces();
-            builder.Register<IdentityFactoryOptions<ApplicationDbContext>>(c => new IdentityFactoryOptions<ApplicationDbContext>()
+            builder.Register<RoleStore<ApplicationRole>>(c => new RoleStore<ApplicationRole>(c.Resolve<ApplicationDbContext>()))
+                .AsImplementedInterfaces().InstancePerRequest();
+            builder.Register<UserStore<ApplicationUser>>(c => new UserStore<ApplicationUser>(c.Resolve<ApplicationDbContext>()))
+                .AsImplementedInterfaces().InstancePerRequest();
+            builder.Register<IdentityFactoryOptions<ApplicationUserManager>>(c => new IdentityFactoryOptions<ApplicationUserManager>()
             {
                 DataProtectionProvider = new Microsoft.Owin.Security.DataProtection.DpapiDataProtectionProvider("CinemaTicketSalesSystem")
             }).InstancePerRequest();
-            builder.RegisterType<ApplicationUserManager>().AsSelf().InstancePerRequest();
+
+            builder.RegisterAssemblyTypes(typeof(ApplicationUserManager).Assembly)
+                .Where(t => t.Name.EndsWith("Manager"))
+                .AsSelf().InstancePerRequest();
 
             
             builder.RegisterAssemblyTypes(typeof(MovieService).Assembly)

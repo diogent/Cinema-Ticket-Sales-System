@@ -5,8 +5,6 @@ using CinemaTicketSalesSystem.Models;
 using System.Web.Mvc;
 using System.Web;
 using System.IO;
-using System.Collections;
-using System.Linq;
 using System.Collections.Generic;
 
 namespace CinemaTicketSalesSystem.Controllers

@@ -12,12 +12,6 @@ namespace AspNetIdentityApp
     {
         public void Configuration(IAppBuilder app)
         {
-            //// Set up context and manager
-            //// Registering ApplicationContext in OWIN 
-            //app.CreatePerOwinContext<ApplicationContext>(ApplicationContext.Create);
-            //// Registering ApplicationUserManager in OWIN
-            //app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
-            
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
                 // Using Cookie 

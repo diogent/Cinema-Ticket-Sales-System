@@ -1,13 +1,12 @@
 ﻿using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
 using ApplicationDbMovies.Models;
-using ApplicationDbMovies.Contexts;
 
 namespace CinemaTicketSalesBusinessLogic.Models
 {
-    public class ApplicationUserManager : UserManager<ApplicationUser>
+    public class ApplicationUserManager : UserManager<ApplicationUser, string>
     {
-        public ApplicationUserManager(IUserStore<ApplicationUser> store, IdentityFactoryOptions<ApplicationDbContext> options) : base(store)
+        public ApplicationUserManager(IUserStore<ApplicationUser, string> store) 
+            : base(store)
         {
 
         }

@@ -40,6 +40,5 @@ namespace CinemaTicketSalesSystem.Models
         public IEnumerable<ActorsViewModel> Actors { get; set; }
         
         public IEnumerable<int> SelectedActorsIds { get; set; }
-
     }
 }

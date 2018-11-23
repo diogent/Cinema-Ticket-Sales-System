@@ -212,6 +212,7 @@
     <Compile Include="Controllers\EditMovieController.cs" />
     <Compile Include="Controllers\EditProducerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -224,6 +225,8 @@
     <Compile Include="Models\CreateMovieViewModel.cs" />
     <Compile Include="Models\CreateActorsViewModel.cs" />
     <Compile Include="Models\CreateProducersViewModel.cs" />
+    <Compile Include="Models\CreateRoleViewModel.cs" />
+    <Compile Include="Models\EditRoleViewModel.cs" />
     <Compile Include="Models\GenresViewModel.cs" />
     <Compile Include="Models\LearnMoreMovieViewModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
@@ -258,6 +261,11 @@
     <Content Include="Views\EditProducer\Producer.cshtml" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <Content Include="Views\Shared\MasterViewPartial.cshtml" />
+    <Content Include="Views\Roles\Create.cshtml" />
+    <Content Include="Views\Roles\Index.cshtml" />
+    <Content Include="Views\Roles\Edit.cshtml" />
+    <Content Include="Views\Account\SetRoles.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

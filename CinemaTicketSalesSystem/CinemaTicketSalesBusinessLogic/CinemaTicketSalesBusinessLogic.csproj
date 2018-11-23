@@ -89,6 +89,7 @@
     <Compile Include="Interfaces\IGenreService.cs" />
     <Compile Include="Interfaces\IMovieService.cs" />
     <Compile Include="Interfaces\IProducerService.cs" />
+    <Compile Include="Manager\ApplicationRoleManager.cs" />
     <Compile Include="Manager\ApplicationUserManager.cs" />
     <Compile Include="Mappings\ActorsProfile.cs" />
     <Compile Include="Mappings\GenresProfile.cs" />

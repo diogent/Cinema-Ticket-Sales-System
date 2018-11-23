@@ -76,7 +76,7 @@ namespace CinemaTicketSalesSystem.Controllers
         public ActionResult Logout()
         {
             AuthenticationManager.SignOut();
-            return RedirectToAction("Register");
+            return RedirectToAction("Index", "Home");
         }     
 
         [HttpGet]
@@ -101,6 +101,12 @@ namespace CinemaTicketSalesSystem.Controllers
 
             }
             return RedirectToAction("Login", "Account");
+        }
+
+        [HttpGet]
+        public ActionResult SetRoles()
+        {
+            return View(_userManager.Users);
         }
     }
 }

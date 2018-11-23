@@ -3,7 +3,6 @@ using CinemaTicketSalesSystem.Models;
 using System.Web.Mvc;
 using CinemaTicketSalesBusinessLogic.Models;
 using CinemaTicketSalesBusinessLogic.Interfaces;
-using System.Collections.Generic;
 
 namespace CinemaTicketSalesSystem.Controllers
 {

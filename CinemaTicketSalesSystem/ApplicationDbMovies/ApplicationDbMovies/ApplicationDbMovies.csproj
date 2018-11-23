@@ -66,8 +66,13 @@
     <Compile Include="Migrations\201811081205086_InitialCreate.Designer.cs">
       <DependentUpon>201811081205086_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811231037453_DataMigration.cs" />
+    <Compile Include="Migrations\201811231037453_DataMigration.Designer.cs">
+      <DependentUpon>201811231037453_DataMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Actor.cs" />
+    <Compile Include="Models\ApplicationRole.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\Movie.cs" />
@@ -86,6 +91,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201811081205086_InitialCreate.resx">
       <DependentUpon>201811081205086_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811231037453_DataMigration.resx">
+      <DependentUpon>201811231037453_DataMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

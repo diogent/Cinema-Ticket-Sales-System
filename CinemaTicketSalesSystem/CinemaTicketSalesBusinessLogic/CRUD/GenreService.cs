@@ -18,10 +18,7 @@ namespace CinemaTicketSalesBusinessLogic.CRUD
             _db = db;
             _mapper = mapper;
         }
-
-        /// <summary>
-        /// This method is mapping from Genre model to GenresModel
-        /// </summary>
+        
         public IEnumerable<GenresModel> GetGenresModel()
         {
             var genres = _db.Genres.ToList();
