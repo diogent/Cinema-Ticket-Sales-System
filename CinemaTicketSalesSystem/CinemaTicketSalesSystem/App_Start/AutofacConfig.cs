@@ -8,8 +8,6 @@ using CinemaTicketSalesBusinessLogic.Models;
 using CinemaTicketSalesBusinessLogic.Queries;
 using AutoMapper;
 using CinemaTicketSalesBusinessLogic.Mappings;
-using CinemaTicketSalesBusinessLogic.Manager;
-using Microsoft.AspNet.Identity;
 
 namespace CinemaTicketSalesSystem.Services
 {

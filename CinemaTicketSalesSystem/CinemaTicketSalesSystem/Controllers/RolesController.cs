@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace CinemaTicketSalesSystem.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class RolesController : Controller
     {
 

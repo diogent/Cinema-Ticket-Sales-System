@@ -1,8 +1,27 @@
 ﻿@using Microsoft.AspNet.Identity
 @if (Request.IsAuthenticated)
 {
-   
+
     @Html.AntiForgeryToken()
+    if (User.IsInRole("Admin"))
+    {
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                @Html.ActionLink("Set Roles", "SetRoles", "Account")
+            </li>
+            <li class="nav-item">
+                @Html.ActionLink("Create New", "CreateNewMovie", "EditMovie")
+            </li>
+            <li class="nav-item">
+                @Html.ActionLink("Hello, " + User.Identity.GetUserName() + "!", "Index", "Home")
+            </li>
+            <li class="nav-item">
+                @Html.ActionLink("Logout", "Logout", "Account")
+            </li>
+        </ul>
+    }
+    else if (User.IsInRole("Moderator"))
+    {
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
                 @Html.ActionLink("Create New", "CreateNewMovie", "EditMovie")
@@ -13,7 +32,20 @@
             <li class="nav-item">
                 @Html.ActionLink("Logout", "Logout", "Account")
             </li>
-        </ul>    
+        </ul>
+    }
+    else 
+    {
+        <ul class="navbar-nav ml-auto">            
+            <li class="nav-item">
+                @Html.ActionLink("Hello, " + User.Identity.GetUserName() + "!", "Index", "Home")
+            </li>
+            <li class="nav-item">
+                @Html.ActionLink("Logout", "Logout", "Account")
+            </li>
+        </ul>
+    }
+
 }
 else
 {

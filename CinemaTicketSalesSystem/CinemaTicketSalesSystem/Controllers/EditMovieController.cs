@@ -9,6 +9,7 @@ using System.Collections.Generic;
 
 namespace CinemaTicketSalesSystem.Controllers
 {
+    [Authorize(Roles = "Admin, Moderator")]
     public class EditMovieController : Controller
     {
         private readonly IMovieService _movieService;

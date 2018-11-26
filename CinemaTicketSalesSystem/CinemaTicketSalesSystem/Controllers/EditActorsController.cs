@@ -6,6 +6,7 @@ using CinemaTicketSalesBusinessLogic.Interfaces;
 
 namespace CinemaTicketSalesSystem.Controllers
 {
+    [Authorize(Roles = "Admin, Moderator")]
     public class EditActorsController : Controller
     {
         private readonly IMapper _mapper;

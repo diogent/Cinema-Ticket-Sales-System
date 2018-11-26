@@ -12,9 +12,10 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>@item.UserName</td>            
-        </tr>
+    <tr>
+        <td>@item.UserName</td>
+        <td>@Html.ActionLink("Set Role", "SetRoleToUser", new { id = item.Id }) |</td>
+    </tr>
     }
 </table>
 

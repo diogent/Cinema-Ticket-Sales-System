@@ -1,11 +1,7 @@
-﻿using CinemaTicketSalesSystem.Controllers;
-using CinemaTicketSalesSystem.Models;
-using System;
-using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
 
 namespace CinemaTicketSalesSystem.Models
 {
