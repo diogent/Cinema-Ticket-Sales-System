@@ -1,13 +1,12 @@
 ﻿@model CinemaTicketSalesSystem.Models.UsersViewModel
 
 @{
-    ViewBag.Title = "SetRoleToUser";
-    Layout = "~/Views/Shared/MasterView.cshtml";
+    ViewBag.Title = "Set Role To User";
 }
 
 <h2>SetRoleToUser</h2>
 
-@using (Html.BeginForm("AddRoleToUser", "Account", FormMethod.Post))
+@using (Html.BeginForm("AddRoleToUser", "Admin", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
     

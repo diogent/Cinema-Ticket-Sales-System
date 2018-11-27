@@ -1,60 +1,55 @@
-﻿@using Microsoft.AspNet.Identity
-@if (Request.IsAuthenticated)
+﻿@using Microsoft.AspNet.Identity;
+@using CinemaTicketSalesSystem.Helpers;
+@using System.Security.Claims;
+
+
+@Html.AntiForgeryToken();
+@if (User.IsInRole("Admin"))
 {
-
-    @Html.AntiForgeryToken()
-    if (User.IsInRole("Admin"))
-    {
-        <ul class="navbar-nav ml-auto">
+    var links = NavigationLinkHelper.GetNavigationLinks("Admin");
+    <ul class="navbar-nav ml-auto">
+        @foreach (var l in links)
+        {
             <li class="nav-item">
-                @Html.ActionLink("Set Roles", "SetRoles", "Account")
+                @Html.ActionLink(l.Label, l.Method, l.Controller)
             </li>
+        }
+    </ul>
+}
+else if (User.IsInRole("Moderator"))
+{
+    var links = NavigationLinkHelper.GetNavigationLinks("Moderator");
+    <ul class="navbar-nav ml-auto">
+        @foreach (var l in links)
+        {
             <li class="nav-item">
-                @Html.ActionLink("Create New", "CreateNewMovie", "EditMovie")
+                @Html.ActionLink(l.Label, l.Method, l.Controller)
             </li>
+        }
+    </ul>
+}
+else if (User.IsInRole("User"))
+{
+    var links = NavigationLinkHelper.GetNavigationLinks("User");
+    <ul class="navbar-nav ml-auto">
+        @foreach (var l in links)
+        {
             <li class="nav-item">
-                @Html.ActionLink("Hello, " + User.Identity.GetUserName() + "!", "Index", "Home")
+                @Html.ActionLink(l.Label, l.Method, l.Controller)
             </li>
-            <li class="nav-item">
-                @Html.ActionLink("Logout", "Logout", "Account")
-            </li>
-        </ul>
-    }
-    else if (User.IsInRole("Moderator"))
-    {
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                @Html.ActionLink("Create New", "CreateNewMovie", "EditMovie")
-            </li>
-            <li class="nav-item">
-                @Html.ActionLink("Hello, " + User.Identity.GetUserName() + "!", "Index", "Home")
-            </li>
-            <li class="nav-item">
-                @Html.ActionLink("Logout", "Logout", "Account")
-            </li>
-        </ul>
-    }
-    else 
-    {
-        <ul class="navbar-nav ml-auto">            
-            <li class="nav-item">
-                @Html.ActionLink("Hello, " + User.Identity.GetUserName() + "!", "Index", "Home")
-            </li>
-            <li class="nav-item">
-                @Html.ActionLink("Logout", "Logout", "Account")
-            </li>
-        </ul>
-    }
-
+        }
+    </ul>
 }
 else
 {
+    var links = NavigationLinkHelper.GetNavigationLinks("UnAuthorize");
     <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-            @Html.ActionLink("Login", "Login", "Account")
-        </li>
-        <li class="nav-item">
-            @Html.ActionLink("Sign Up", "Register", "Account")
-        </li>
+        @foreach (var l in links)
+        {
+            <li class="nav-item">
+                @Html.ActionLink(l.Label, l.Method, l.Controller)
+            </li>
+        }
     </ul>
 }
+

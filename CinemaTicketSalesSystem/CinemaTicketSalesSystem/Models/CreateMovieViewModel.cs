@@ -22,17 +22,14 @@ namespace CinemaTicketSalesSystem.Models
         [StringLength(3)]
         public string AgeRating { get; set; }
         
-        [NotMapped]
         public IEnumerable<GenresViewModel> Genres { get; set; }
         
         public IEnumerable<int> SelectedGenresIds { get; set; }
-
-        [NotMapped]
+        
         public IEnumerable<ProducersViewModel> Producers { get; set; }
         
         public IEnumerable<int> SelectedProducersIds { get; set; }
-
-        [NotMapped]
+        
         public IEnumerable<ActorsViewModel> Actors { get; set; }
         
         public IEnumerable<int> SelectedActorsIds { get; set; }

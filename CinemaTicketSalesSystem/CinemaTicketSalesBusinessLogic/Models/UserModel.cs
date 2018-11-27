@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace CinemaTicketSalesBusinessLogic.Models
 {
@@ -12,8 +7,7 @@ namespace CinemaTicketSalesBusinessLogic.Models
         public string Id { get; set; }
         public string UserName { get; set; }
         public string Email { get; set; }
-
-        [NotMapped]
+        
         public IEnumerable<RoleModel> Roles { get; set; }
     }
 }

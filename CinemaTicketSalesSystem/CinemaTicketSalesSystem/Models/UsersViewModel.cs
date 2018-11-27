@@ -9,9 +9,7 @@ namespace CinemaTicketSalesSystem.Models
         public string UserName { get; set; }
         public string Email { get; set; }   
         
-        [NotMapped]
         public IEnumerable<RoleViewModel> Roles { get; set; }
-        [NotMapped]
         public string SelectedRole { get; set; }
     }
 }

@@ -104,7 +104,7 @@ namespace CinemaTicketSalesSystem.Controllers
         {
             if (!ModelState.IsValid)
                 return View(model);
-            var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+            var user = new ApplicationUser { UserName = model.Email, Email = model.Email };            
             var result = await _userManager.CreateAsync(user, model.Password);
             if (!result.Succeeded)
             {
@@ -114,61 +114,10 @@ namespace CinemaTicketSalesSystem.Controllers
                 }
 
             }
+            var _user = await _userManager.FindByEmailAsync(model.Email);
+            var _role = await _roleManager.FindByNameAsync("User");
+            var setRole = await _userManager.AddToRoleAsync(_user.Id, _role.Name);
             return RedirectToAction("Login", "Account");
-        }
-
-        [HttpGet]
-        [CustomAuthorize(Roles = "Admin")]
-        public ActionResult SetRoles()
-        {
-            return View(_userManager.Users);
-        }
-
-        [HttpGet]
-        [CustomAuthorize(Roles = "Admin")]
-        public ActionResult SetRoleToUser(string id)
-        {            
-            var user = getUsersList(id);
-            user.Roles = getRolesList();
-            return View(user);
-        }
-
-        [HttpPost]
-        [CustomAuthorize(Roles = "Admin")]
-        public ActionResult AddRoleToUser(UsersViewModel usersViewModel)
-        {
-            var _user = _userManager.FindById(usersViewModel.Id);
-            var _role = _roleManager.FindByName(usersViewModel.SelectedRole);
-
-            var result = _userManager.AddToRole(_user.Id, usersViewModel.SelectedRole);
-
-            if (result.Succeeded)
-                return RedirectToAction("Index", "Home");
-            return RedirectToAction("SetRoles");
-        }
-
-
-        /// <summary>
-        /// This method allows to map RoleModel into RoleViewModel
-        /// </summary>
-        /// <returns></returns>
-        private IEnumerable<RoleViewModel> getRolesList()
-        {
-            var roles = _userService.GetRoles();
-            var rolesList = _mapper.Map<IEnumerable<RoleModel>, IEnumerable<RoleViewModel>>(roles);
-            return rolesList;
-        }
-
-        /// <summary>
-        /// Gets Users info for update
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        private UsersViewModel getUsersList(string id)
-        {
-            var usersForMap = _userService.GetUserInfo(id);
-            var usersInfo = _mapper.Map<UserModel, UsersViewModel>(usersForMap);
-            return usersInfo;               
-        }
+        }        
     }
 }
