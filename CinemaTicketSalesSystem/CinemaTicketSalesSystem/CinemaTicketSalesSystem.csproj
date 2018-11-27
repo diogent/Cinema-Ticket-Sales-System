@@ -211,8 +211,10 @@
     <Compile Include="Controllers\EditActorsController.cs" />
     <Compile Include="Controllers\EditMovieController.cs" />
     <Compile Include="Controllers\EditProducerController.cs" />
+    <Compile Include="Controllers\ErrorsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
+    <Compile Include="Errors Handler\CustomAuthorize.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -271,6 +273,7 @@
     <Content Include="Views\Roles\Edit.cshtml" />
     <Content Include="Views\Account\SetRoles.cshtml" />
     <Content Include="Views\Account\SetRoleToUser.cshtml" />
+    <Content Include="Views\Errors\UnAuthorize.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

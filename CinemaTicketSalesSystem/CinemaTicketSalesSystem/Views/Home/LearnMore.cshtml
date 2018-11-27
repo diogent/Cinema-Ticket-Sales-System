@@ -21,6 +21,10 @@
                     <a>@g.Name,</a>
                 }
             </h6>
+            <h6>
+                Age Rating:
+                @Html.DisplayFor(model => model.AgeRating)
+            </h6>
             <h6 class="h6-for-producers">
                 Directed by:
                 @foreach (var p in Model.Producers)

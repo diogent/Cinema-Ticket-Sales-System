@@ -15,7 +15,11 @@ namespace CinemaTicketSalesBusinessLogic.Interfaces
         /// <returns></returns>
         IEnumerable<RoleModel> GetRoles();
 
-
+        /// <summary>
+        /// Gets the info about selected user
+        /// </summary>
+        /// <param name="id">Id of the user</param>
+        /// <returns></returns>
         UserModel GetUserInfo(string id);
     }
 }

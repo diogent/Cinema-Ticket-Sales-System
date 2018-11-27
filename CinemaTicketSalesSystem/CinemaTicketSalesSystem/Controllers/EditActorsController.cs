@@ -3,10 +3,11 @@ using CinemaTicketSalesSystem.Models;
 using System.Web.Mvc;
 using CinemaTicketSalesBusinessLogic.Models;
 using CinemaTicketSalesBusinessLogic.Interfaces;
+using CinemaTicketSalesSystem.Errors_Handler;
 
 namespace CinemaTicketSalesSystem.Controllers
 {
-    [Authorize(Roles = "Admin, Moderator")]
+    [CustomAuthorize(Roles = "Admin, Moderator")]
     public class EditActorsController : Controller
     {
         private readonly IMapper _mapper;
@@ -31,7 +32,7 @@ namespace CinemaTicketSalesSystem.Controllers
                 return View(editActors);
             var newActor = _mapper.Map<CreateActorsViewModel, AddActorsModel>(editActors);
             _actorService.SaveActor(newActor);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("CreateNewMovie", "EditMovie");
         }        
     }
 }

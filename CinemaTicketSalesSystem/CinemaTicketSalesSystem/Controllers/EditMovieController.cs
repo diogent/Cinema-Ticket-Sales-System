@@ -6,10 +6,11 @@ using System.Web.Mvc;
 using System.Web;
 using System.IO;
 using System.Collections.Generic;
+using CinemaTicketSalesSystem.Errors_Handler;
 
 namespace CinemaTicketSalesSystem.Controllers
 {
-    [Authorize(Roles = "Admin, Moderator")]
+    [CustomAuthorize(Roles = "Admin, Moderator")]
     public class EditMovieController : Controller
     {
         private readonly IMovieService _movieService;
@@ -55,7 +56,7 @@ namespace CinemaTicketSalesSystem.Controllers
             string path = getPicturePath(picture);
             var newMovie = _mapper.Map<CreateMovieViewModel, CreateMovieModel>(movieModel);
             _movieService.CreateMovie(newMovie, path);
-            return RedirectToAction("EditActors", "EditActors");
+            return RedirectToAction("Index", "Home");
         }
 
         /// <summary>

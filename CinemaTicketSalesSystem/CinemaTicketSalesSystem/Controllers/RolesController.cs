@@ -1,4 +1,5 @@
 ﻿using CinemaTicketSalesBusinessLogic.Manager;
+using CinemaTicketSalesSystem.Errors_Handler;
 using CinemaTicketSalesSystem.Models;
 using Microsoft.AspNet.Identity;
 using System.Threading.Tasks;
@@ -6,7 +7,7 @@ using System.Web.Mvc;
 
 namespace CinemaTicketSalesSystem.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [CustomAuthorize(Roles = "Admin")]
     public class RolesController : Controller
     {
 

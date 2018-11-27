@@ -12,7 +12,7 @@ using CinemaTicketSalesBusinessLogic.Manager;
 using CinemaTicketSalesBusinessLogic.Interfaces;
 using AutoMapper;
 using System.Collections.Generic;
-using System.Linq;
+using CinemaTicketSalesSystem.Errors_Handler;
 
 namespace CinemaTicketSalesSystem.Controllers
 {
@@ -118,14 +118,14 @@ namespace CinemaTicketSalesSystem.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "Admin")]
+        [CustomAuthorize(Roles = "Admin")]
         public ActionResult SetRoles()
         {
             return View(_userManager.Users);
         }
 
         [HttpGet]
-        [Authorize(Roles = "Admin")]
+        [CustomAuthorize(Roles = "Admin")]
         public ActionResult SetRoleToUser(string id)
         {            
             var user = getUsersList(id);
@@ -134,7 +134,7 @@ namespace CinemaTicketSalesSystem.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Admin")]
+        [CustomAuthorize(Roles = "Admin")]
         public ActionResult AddRoleToUser(UsersViewModel usersViewModel)
         {
             var _user = _userManager.FindById(usersViewModel.Id);
