@@ -1,11 +1,7 @@
-﻿using CinemaTicketSalesSystem.Controllers;
-using CinemaTicketSalesSystem.Models;
-using System;
-using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
 
 namespace CinemaTicketSalesSystem.Models
 {
@@ -26,20 +22,16 @@ namespace CinemaTicketSalesSystem.Models
         [StringLength(3)]
         public string AgeRating { get; set; }
         
-        [NotMapped]
         public IEnumerable<GenresViewModel> Genres { get; set; }
         
         public IEnumerable<int> SelectedGenresIds { get; set; }
-
-        [NotMapped]
+        
         public IEnumerable<ProducersViewModel> Producers { get; set; }
         
         public IEnumerable<int> SelectedProducersIds { get; set; }
-
-        [NotMapped]
+        
         public IEnumerable<ActorsViewModel> Actors { get; set; }
         
         public IEnumerable<int> SelectedActorsIds { get; set; }
-
     }
 }

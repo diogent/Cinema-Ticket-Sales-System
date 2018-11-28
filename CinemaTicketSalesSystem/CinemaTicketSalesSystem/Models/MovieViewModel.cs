@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace CinemaTicketSalesSystem.ViewModels
+﻿namespace CinemaTicketSalesSystem.ViewModels
 {
     public class MovieViewModel
     {

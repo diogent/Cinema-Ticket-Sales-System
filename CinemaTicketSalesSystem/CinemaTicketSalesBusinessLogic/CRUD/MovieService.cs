@@ -19,10 +19,7 @@ namespace CinemaTicketSalesBusinessLogic.Queries
             _db = context;
             _mapper = mapper;
         }
-
-        /// <summary>
-        /// Using in HomeController for viewing Movies collection on the Main page.
-        /// </summary>        
+               
         public IEnumerable<MovieInfoModel> GetMovies()
         {
             var movies = _db.Movies.Include(x => x.Pictures).ToList();
@@ -35,26 +32,14 @@ namespace CinemaTicketSalesBusinessLogic.Queries
             return movieModels;
         }
 
-        /// <summary>
-        /// Using for viewing description data of the selected movie.
-        /// </summary>
-        /// <param name="id">
-        /// Using to find the relative data.
-        /// </param>
-        /// <returns></returns>
+        
         public LearnMoreMovieModel GetMovieDetails(int id)
         {
             var description = _db.Movies.Find(id);
             var learnMoreMovie = _mapper.Map<Movie, LearnMoreMovieModel>(description);
             return learnMoreMovie;
         }
-
-        /// <summary>
-        /// This method used to create a new Movie
-        /// </summary>
-        /// <param name="newMovieModel">
-        /// Parameter from UI
-        /// </param>
+        
         public void CreateMovie(CreateMovieModel newMovieModel, string path)
         {
             var producerIds = newMovieModel.SelectedProducersIds;

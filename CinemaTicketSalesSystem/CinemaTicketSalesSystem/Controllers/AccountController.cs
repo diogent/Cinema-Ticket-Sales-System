@@ -8,6 +8,12 @@ using Microsoft.Owin.Security;
 using System.Security.Claims;
 using ApplicationDbMovies.Models;
 using CinemaTicketSalesBusinessLogic.Models;
+using CinemaTicketSalesBusinessLogic.Manager;
+using CinemaTicketSalesBusinessLogic.Interfaces;
+using AutoMapper;
+using System.Collections.Generic;
+using CinemaTicketSalesSystem.Errors_Handler;
+using CinemaTicketSalesSystem.Constants;
 
 namespace CinemaTicketSalesSystem.Controllers
 {
@@ -16,10 +22,19 @@ namespace CinemaTicketSalesSystem.Controllers
         /// <summary>
         /// Everything that needs the old UserManager property references this now
         /// </summary>
-        private ApplicationUserManager _userManager; 
-        public AccountController(ApplicationUserManager userManager)
+        private ApplicationUserManager _userManager;
+        private ApplicationRoleManager _roleManager;
+        private IUserService _userService;
+        private IMapper _mapper;
+        public AccountController(ApplicationUserManager userManager,
+            ApplicationRoleManager roleManager,
+            IUserService userService,
+            IMapper mapper)
         {
             _userManager = userManager;
+            _roleManager = roleManager;
+            _userService = userService;
+            _mapper = mapper;
         }
 
         
@@ -76,7 +91,7 @@ namespace CinemaTicketSalesSystem.Controllers
         public ActionResult Logout()
         {
             AuthenticationManager.SignOut();
-            return RedirectToAction("Register");
+            return RedirectToAction("Index", "Home");
         }     
 
         [HttpGet]
@@ -90,7 +105,7 @@ namespace CinemaTicketSalesSystem.Controllers
         {
             if (!ModelState.IsValid)
                 return View(model);
-            var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+            var user = new ApplicationUser { UserName = model.Email, Email = model.Email };            
             var result = await _userManager.CreateAsync(user, model.Password);
             if (!result.Succeeded)
             {
@@ -100,7 +115,10 @@ namespace CinemaTicketSalesSystem.Controllers
                 }
 
             }
+            var _user = await _userManager.FindByEmailAsync(model.Email);
+            var _role = await _roleManager.FindByNameAsync(RolesList.User);
+            var setRole = await _userManager.AddToRoleAsync(_user.Id, _role.Name);
             return RedirectToAction("Login", "Account");
-        }
+        }        
     }
 }

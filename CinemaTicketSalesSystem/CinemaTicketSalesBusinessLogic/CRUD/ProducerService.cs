@@ -19,20 +19,13 @@ namespace CinemaTicketSalesBusinessLogic.CRUD
             _mapper = mapper;
         }
 
-        /// <summary>
-        /// This method saves a new producer.
-        /// </summary>
-        /// <param name="addProducerModel">Model from UI</param>
         public void SaveProducer(AddProducersModel addProducerModel)
         {
             var newProducer = _mapper.Map<AddProducersModel, Producer>(addProducerModel);
             _db.Producers.Add(newProducer);
             _db.SaveChanges();
         }
-
-        /// <summary>
-        /// This method is mapping from Producer model to ProducersModel
-        /// </summary>
+        
         public IEnumerable<ProducersModel> GetProducersModel()
         {
             var producers = _db.Producers.ToList();

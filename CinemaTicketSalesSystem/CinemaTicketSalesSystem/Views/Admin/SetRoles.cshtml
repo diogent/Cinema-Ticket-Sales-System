@@ -1,0 +1,20 @@
+﻿@model IEnumerable<ApplicationDbMovies.Models.ApplicationUser>
+@{
+    ViewBag.Title = "SetRoles";
+}
+
+<h2>Users</h2>
+<table class="table">
+    <tr>
+        <th>Name</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>@item.UserName</td>
+        <td>@Html.ActionLink("Set Role", "SetRoleToUser", new { id = item.Id }) |</td>
+    </tr>
+    }
+</table>
+

@@ -1,7 +1,6 @@
 ﻿@model CinemaTicketSalesSystem.Models.CreateMovieViewModel
 @{
-    ViewBag.Title = "CreateNewMovie";
-    Layout = "~/Views/Shared/MasterView.cshtml";
+    ViewBag.Title = "Create New Movie";
 }
 
 @using (Html.BeginForm("CreateNewMovie", "EditMovie", FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -44,7 +43,7 @@
     <div>
         <div>
             <label>Select actors:</label>
-            @Html.ListBoxFor(m => m.SelectedActorsIds, new MultiSelectList(Model.Actors, "Id", "FirstName"), new { @class = "chosen-select", @multiple = "true" })            
+            @Html.ListBoxFor(m => m.SelectedActorsIds, new MultiSelectList(Model.Actors, "Id", "FullName"), new { @class = "chosen-select", @multiple = "true" })            
         </div>
     </div>
 
@@ -58,7 +57,7 @@
     <div>
         <div>
             <label>Select producers:</label>
-            @Html.ListBoxFor(m => m.SelectedProducersIds, new MultiSelectList(Model.Producers, "Id", "FirstName"), new { @class = "chosen-select", @multiple = "true" })
+            @Html.ListBoxFor(m => m.SelectedProducersIds, new MultiSelectList(Model.Producers, "Id", "FullName"), new { @class = "chosen-select", @multiple = "true" })
             <script>
                 $(document).ready(function () {
                     $(".chosen-select").chosen({ width: "50%" });

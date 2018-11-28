@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CinemaTicketSalesSystem.Models
 {
@@ -12,5 +10,6 @@ namespace CinemaTicketSalesSystem.Models
         public string SecondName { get; set; }
         public string LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
+        public string FullName => $"{FirstName} {LastName}";            
     }
 }

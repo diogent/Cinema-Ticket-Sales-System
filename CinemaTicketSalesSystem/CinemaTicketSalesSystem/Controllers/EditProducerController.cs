@@ -1,11 +1,13 @@
 ﻿using AutoMapper;
 using CinemaTicketSalesBusinessLogic.Interfaces;
 using CinemaTicketSalesBusinessLogic.Models;
+using CinemaTicketSalesSystem.Errors_Handler;
 using CinemaTicketSalesSystem.Models;
 using System.Web.Mvc;
 
 namespace CinemaTicketSalesSystem.Controllers
 {
+    [CustomAuthorize(Roles = "Admin, Moderator")]
     public class EditProducerController : Controller
     {
 

@@ -13,14 +13,10 @@ namespace CinemaTicketSalesSystem.Models
         public IEnumerable<MoviesViewModel> Movies { get; set; }
         public IEnumerable<GenresViewModel> Genres { get; set; }
         public IEnumerable<ProducersViewModel> Producers { get; set; }
-
-        [NotMapped]
+        
         public int[] ActorsSelectedIds { get; set; }
-        [NotMapped]
         public int MovieSelectedId { get; set; }
-        [NotMapped]
-        public int[] GenresSelectedIds { get; set; }
-        [NotMapped]
+        public int[] GenresSelectedIds { get; set; }        
         public int[] ProducersSelectedIds { get; set; }
     }
 }

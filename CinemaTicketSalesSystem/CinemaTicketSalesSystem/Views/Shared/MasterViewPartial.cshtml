@@ -1,0 +1,32 @@
+﻿@using CinemaTicketSalesSystem.Helpers;
+@using CinemaTicketSalesSystem.Models;
+@using CinemaTicketSalesSystem.Constants;
+
+
+@Html.AntiForgeryToken();
+@{ 
+    IEnumerable<LinksViewModel> links = NavigationLinkHelper.GetNavigationLinks(RolesList.UnAuthorized);
+    if (User.IsInRole(RolesList.Admin))
+    {
+        links = NavigationLinkHelper.GetNavigationLinks(RolesList.Admin);
+    }
+
+    if (User.IsInRole(RolesList.Moderator))
+    {
+        links = NavigationLinkHelper.GetNavigationLinks(RolesList.Moderator);
+    }
+
+    if (User.IsInRole(RolesList.User))
+    {
+        links = NavigationLinkHelper.GetNavigationLinks(RolesList.User);
+    }
+
+}
+<ul class="navbar-nav ml-auto">  
+    @foreach (var l in links)
+    {
+        <li class="nav-item">
+            @Html.ActionLink(l.Label, l.Method, l.Controller)
+        </li>
+    }   
+</ul>
