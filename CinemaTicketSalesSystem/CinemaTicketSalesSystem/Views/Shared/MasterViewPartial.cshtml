@@ -5,50 +5,28 @@
 
 @Html.AntiForgeryToken();
 @{ 
-    IEnumerable<LinksViewModel> links;
-}
-<ul class="navbar-nav ml-auto">
-    @if (User.IsInRole(RolesList.Admin))
+    IEnumerable<LinksViewModel> links = NavigationLinkHelper.GetNavigationLinks(RolesList.UnAuthorized);
+    if (User.IsInRole(RolesList.Admin))
     {
         links = NavigationLinkHelper.GetNavigationLinks(RolesList.Admin);
-
-            foreach (var l in links)
-            {
-                <li class="nav-item">
-                    @Html.ActionLink(l.Label, l.Method, l.Controller)
-                </li>
-            }
     }
-    else if (User.IsInRole(RolesList.Moderator))
+
+    if (User.IsInRole(RolesList.Moderator))
     {
         links = NavigationLinkHelper.GetNavigationLinks(RolesList.Moderator);
-
-        foreach (var l in links)
-        {
-            <li class="nav-item">
-                @Html.ActionLink(l.Label, l.Method, l.Controller)
-            </li>
-        }
-
     }
-    else if (User.IsInRole(RolesList.User))
+
+    if (User.IsInRole(RolesList.User))
     {
         links = NavigationLinkHelper.GetNavigationLinks(RolesList.User);
-            foreach (var l in links)
-            {
-                <li class="nav-item">
-                    @Html.ActionLink(l.Label, l.Method, l.Controller)
-                </li>
-            }
     }
-    else
+
+}
+<ul class="navbar-nav ml-auto">  
+    @foreach (var l in links)
     {
-        links = NavigationLinkHelper.GetNavigationLinks(RolesList.UnAuthorized);
-            foreach (var l in links)
-            {
-                <li class="nav-item">
-                    @Html.ActionLink(l.Label, l.Method, l.Controller)
-                </li>
-            }
-    }
+        <li class="nav-item">
+            @Html.ActionLink(l.Label, l.Method, l.Controller)
+        </li>
+    }   
 </ul>
