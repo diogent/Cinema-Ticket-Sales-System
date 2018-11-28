@@ -11,7 +11,7 @@ namespace CinemaTicketSalesSystem.Helpers
         {
             switch (role)
             {
-                case Roles.Admin:
+                case RolesList.Admin:
                     {
                         IEnumerable<LinksViewModel> links = new List<LinksViewModel>
                         {
@@ -21,7 +21,7 @@ namespace CinemaTicketSalesSystem.Helpers
                         };
                         return links;
                     }
-                case Roles.Moderator:
+                case RolesList.Moderator:
                     {
                         IEnumerable<LinksViewModel> links = new List<LinksViewModel>
                         {
@@ -30,7 +30,7 @@ namespace CinemaTicketSalesSystem.Helpers
                         };
                         return links;
                     }
-                case Roles.User:
+                case RolesList.User:
                     {
                         IEnumerable<LinksViewModel> links = new List<LinksViewModel>
                         {                            

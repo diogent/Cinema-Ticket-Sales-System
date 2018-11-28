@@ -13,6 +13,7 @@ using CinemaTicketSalesBusinessLogic.Interfaces;
 using AutoMapper;
 using System.Collections.Generic;
 using CinemaTicketSalesSystem.Errors_Handler;
+using CinemaTicketSalesSystem.Constants;
 
 namespace CinemaTicketSalesSystem.Controllers
 {
@@ -115,7 +116,7 @@ namespace CinemaTicketSalesSystem.Controllers
 
             }
             var _user = await _userManager.FindByEmailAsync(model.Email);
-            var _role = await _roleManager.FindByNameAsync("User");
+            var _role = await _roleManager.FindByNameAsync(RolesList.User);
             var setRole = await _userManager.AddToRoleAsync(_user.Id, _role.Name);
             return RedirectToAction("Login", "Account");
         }        

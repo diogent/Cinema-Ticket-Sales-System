@@ -1,18 +1,11 @@
 ﻿using ApplicationDbMovies.Contexts;
 using CinemaTicketSalesBusinessLogic.Interfaces;
 using CinemaTicketSalesBusinessLogic.Models;
-using Microsoft.AspNet.Identity;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web;
-using Microsoft.Owin;
 using AutoMapper;
 using ApplicationDbMovies.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
-using System.Data.Entity;
 
 namespace CinemaTicketSalesBusinessLogic.CRUD
 {

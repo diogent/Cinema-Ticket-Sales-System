@@ -5,7 +5,7 @@ using System.Web;
 
 namespace CinemaTicketSalesSystem.Constants
 {
-    public static class Roles
+    public static class RolesList
     {
         public const string Admin = "Admin";
         public const string Moderator = "Moderator";

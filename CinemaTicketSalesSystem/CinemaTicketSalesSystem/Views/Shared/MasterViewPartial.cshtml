@@ -1,55 +1,54 @@
-﻿@using Microsoft.AspNet.Identity;
-@using CinemaTicketSalesSystem.Helpers;
-@using System.Security.Claims;
+﻿@using CinemaTicketSalesSystem.Helpers;
+@using CinemaTicketSalesSystem.Models;
+@using CinemaTicketSalesSystem.Constants;
 
 
 @Html.AntiForgeryToken();
-@if (User.IsInRole("Admin"))
-{
-    var links = NavigationLinkHelper.GetNavigationLinks("Admin");
-    <ul class="navbar-nav ml-auto">
-        @foreach (var l in links)
-        {
-            <li class="nav-item">
-                @Html.ActionLink(l.Label, l.Method, l.Controller)
-            </li>
-        }
-    </ul>
+@{ 
+    IEnumerable<LinksViewModel> links;
 }
-else if (User.IsInRole("Moderator"))
-{
-    var links = NavigationLinkHelper.GetNavigationLinks("Moderator");
-    <ul class="navbar-nav ml-auto">
-        @foreach (var l in links)
-        {
-            <li class="nav-item">
-                @Html.ActionLink(l.Label, l.Method, l.Controller)
-            </li>
-        }
-    </ul>
-}
-else if (User.IsInRole("User"))
-{
-    var links = NavigationLinkHelper.GetNavigationLinks("User");
-    <ul class="navbar-nav ml-auto">
-        @foreach (var l in links)
-        {
-            <li class="nav-item">
-                @Html.ActionLink(l.Label, l.Method, l.Controller)
-            </li>
-        }
-    </ul>
-}
-else
-{
-    var links = NavigationLinkHelper.GetNavigationLinks("UnAuthorize");
-    <ul class="navbar-nav ml-auto">
-        @foreach (var l in links)
-        {
-            <li class="nav-item">
-                @Html.ActionLink(l.Label, l.Method, l.Controller)
-            </li>
-        }
-    </ul>
-}
+<ul class="navbar-nav ml-auto">
+    @if (User.IsInRole(RolesList.Admin))
+    {
+        links = NavigationLinkHelper.GetNavigationLinks(RolesList.Admin);
 
+            foreach (var l in links)
+            {
+                <li class="nav-item">
+                    @Html.ActionLink(l.Label, l.Method, l.Controller)
+                </li>
+            }
+    }
+    else if (User.IsInRole(RolesList.Moderator))
+    {
+        links = NavigationLinkHelper.GetNavigationLinks(RolesList.Moderator);
+
+        foreach (var l in links)
+        {
+            <li class="nav-item">
+                @Html.ActionLink(l.Label, l.Method, l.Controller)
+            </li>
+        }
+
+    }
+    else if (User.IsInRole(RolesList.User))
+    {
+        links = NavigationLinkHelper.GetNavigationLinks(RolesList.User);
+            foreach (var l in links)
+            {
+                <li class="nav-item">
+                    @Html.ActionLink(l.Label, l.Method, l.Controller)
+                </li>
+            }
+    }
+    else
+    {
+        links = NavigationLinkHelper.GetNavigationLinks(RolesList.UnAuthorized);
+            foreach (var l in links)
+            {
+                <li class="nav-item">
+                    @Html.ActionLink(l.Label, l.Method, l.Controller)
+                </li>
+            }
+    }
+</ul>
