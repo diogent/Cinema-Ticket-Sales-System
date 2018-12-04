@@ -11,7 +11,7 @@ namespace ApplicationDbMovies.Configurations
                 .WithMany(g => g.Producers)
                 .Map(t => t.MapLeftKey("ProducerId")
                 .MapRightKey("MovieId")
-                .ToTable("MovieProducer"));
+                .ToTable("MovieProducer"));            
         }
     }
 }

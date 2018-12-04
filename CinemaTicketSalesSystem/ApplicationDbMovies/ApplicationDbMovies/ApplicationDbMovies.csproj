@@ -61,6 +61,7 @@
     <Compile Include="Configurations\MovieActorConfig.cs" />
     <Compile Include="Configurations\MovieGenreConfig.cs" />
     <Compile Include="Configurations\MovieProducerConfig.cs" />
+    <Compile Include="Configurations\AddressCityConfig.cs" />
     <Compile Include="Contexts\ApplicationDbContext.cs" />
     <Compile Include="Migrations\201811081205086_InitialCreate.cs" />
     <Compile Include="Migrations\201811081205086_InitialCreate.Designer.cs">
@@ -70,15 +71,29 @@
     <Compile Include="Migrations\201811231037453_DataMigration.Designer.cs">
       <DependentUpon>201811231037453_DataMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812041442251_CinemaHallScheme.cs" />
+    <Compile Include="Migrations\201812041442251_CinemaHallScheme.Designer.cs">
+      <DependentUpon>201812041442251_CinemaHallScheme.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Actor.cs" />
+    <Compile Include="Models\CinemaAddress.cs" />
     <Compile Include="Models\ApplicationRole.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\Cinema.cs" />
+    <Compile Include="Models\CinemaSeatType.cs" />
+    <Compile Include="Models\City.cs" />
     <Compile Include="Models\Genre.cs" />
+    <Compile Include="Models\Hall.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Models\MoviesInit.cs" />
     <Compile Include="Models\Picture.cs" />
     <Compile Include="Models\Producer.cs" />
+    <Compile Include="Models\Row.cs" />
+    <Compile Include="Models\Seat.cs" />
+    <Compile Include="Models\SeatType.cs" />
+    <Compile Include="Models\Session.cs" />
+    <Compile Include="Models\Ticket.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -94,6 +109,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811231037453_DataMigration.resx">
       <DependentUpon>201811231037453_DataMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812041442251_CinemaHallScheme.resx">
+      <DependentUpon>201812041442251_CinemaHallScheme.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
